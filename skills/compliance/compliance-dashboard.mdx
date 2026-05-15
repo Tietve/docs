@@ -1,0 +1,49 @@
+---
+title: "legal-compliance-dashboard"
+description: "Aggregate 4 audit → health score 0-100 + top 5 risks executive view"
+icon: "chart-pie"
+---
+
+<Note>**Archetype**: Workflow (W) — Pure aggregation, NO skill call</Note>
+
+## Vấn đề giải quyết
+
+Bạn có 4 audit JSON từ tax + fdi + safety + license. Sếp họp Board hỏi "tổng quan compliance thế nào?". Không thể đưa 4 file 40 trang.
+
+## Pattern
+
+Consume 4 audit JSON từ Skill #34/#35/#36/#37 → emit 1 dashboard.
+
+## Health score formula
+
+```
+score_per_area = max(0, 100 - (BLOCK*15 + FLAG*7 + WARN*2))
+overall = average(scores_per_area)
+```
+
+## Verdict thresholds
+
+| Verdict | Điều kiện |
+|---------|-----------|
+| APPROVED | overall ≥ 85 & 0 BLOCK |
+| APPROVED_WITH_WATCH | overall ≥ 70 & 0 BLOCK |
+| REQUEST_CHANGES | overall ≥ 50 hoặc 1-3 BLOCK |
+| BLOCKED | overall < 50 hoặc ≥ 4 BLOCK |
+
+## Top 5 ranking (4 tiebreaker)
+
+1. severity desc (BLOCK > FLAG > WARN)
+2. area_weight: **safety > license > tax > fdi**
+3. estimated_impact_vnd desc
+4. alphabetical issue_id
+
+## Smoke verified
+
+- case-01: mixed health overall=62 → REQUEST_CHANGES
+- case-02: ma_dd overall=35 → BLOCKED
+
+## Hỗ trợ workflow
+
+- CCO/GC Board quarterly reporting
+- M&A buyer DD final report
+- IPO prep team executive summary

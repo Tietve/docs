@@ -1,0 +1,45 @@
+---
+title: "legal-case-runner"
+description: "Route case profile → pipeline + skill order + estimated time"
+icon: "route"
+---
+
+<Note>**Archetype**: Meta (M) — ROUTING ENGINE</Note>
+
+## Vấn đề giải quyết
+
+Nhận case mới — không biết chạy pipeline nào / skills nào / data sẵn sàng đủ chưa. Robot match case → pipeline phù hợp.
+
+## 7 case_type routing
+
+| case_type | Pipeline | Skills | Est time |
+|-----------|----------|--------|----------|
+| ma_due_diligence | PIPELINE-DD-FULL | #34+#35+#36+#37+#38 | 25-45' |
+| vendor_contract_review | PIPELINE-CONTRACT-REVIEW | #1+#4+#5 | 30-45' |
+| debt_collection | CUSTOM-DEBT | #26+#22+#31+#23 | 30' |
+| dispute_prep | CUSTOM-DISPUTE | #6+#23+#33 | 30-45' |
+| corporate_setup | CUSTOM-SETUP | #35+#7+#8 | 30-60' |
+| hr_termination | CUSTOM-HR | #12+#19+#9+#11 | 30-45' |
+| compliance_healthcheck | PIPELINE-DD-FULL subset | #34+#37+#38 | 20-30' |
+
+## Confidence scoring
+
+- **high**: case_type rõ + data ≥ 80%
+- **medium**: case_type rõ + data 50-80%
+- **low**: ambiguous hoặc data < 50% → "intake thêm data"
+
+## Risk alerts
+
+- Deadline tight
+- Budget tight
+- Data incomplete
+
+## Smoke verified
+
+- case-01: M&A DD → PIPELINE-DD-FULL confidence high (7823+7906B)
+- case-02: debt collection → CUSTOM-DEBT 4 skills (9773+9909B)
+
+## Hỗ trợ workflow
+
+- Intake automation (case mới auto-route)
+- Partner ước tính effort + budget pre-engagement

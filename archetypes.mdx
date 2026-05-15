@@ -1,0 +1,81 @@
+---
+title: "6 Archetype"
+description: "Hệ phân loại skill theo chức năng — quyết định ai làm gì"
+icon: "shapes"
+---
+
+Mỗi skill thuộc đúng **1 archetype**. Đây là khung phân loại thống nhất cho cả 46 skill.
+
+## Generator (G)
+
+<Note>**Vai trò**: Soạn artifact mới từ JSON input. Output `.docx` hoặc `.md` chuẩn pháp lý pro-side hoặc neutral.</Note>
+
+- **Input**: JSON 10-30 trường (parties + terms + scope + jurisdiction)
+- **Output**: 1+ file artifact + walkthrough markdown
+- **Cite anchor**: REQUIRED — mọi điều khoản canonical phải dẫn điều luật gốc
+- **Pattern**: schema-as-spec → emit JSON → formatter render docx
+
+**Skills G**: contract-drafter / memo-drafter / tranh-tung-drafter / corporate-governance-drafter / internal-rules-drafter / disciplinary-decision-drafter / power-of-attorney-drafter / shareholder-meeting-drafter / member-council-meeting-drafter / employment-termination-drafter / debt-warning-letter / deposition-prep / share-transfer-contract-drafter / data-privacy-policy-drafter / dpa-generator / trademark-application-drafter / meeting-notice-drafter / warning-letter-drafter / compliance-letter-drafter / real-estate-poa-drafter
+
+## Reviewer (R)
+
+<Note>**Vai trò**: Audit artifact có sẵn theo 6-pillar checklist. Phát hiện rủi ro, đề xuất sửa.</Note>
+
+- **Input**: artifact JSON hoặc docx + scope
+- **Output**: `audit.json` (issues list) + `report.md` (verdict + roadmap)
+- **Verdict 4 mức**: APPROVED / APPROVED_WITH_CHANGES / REQUEST_CHANGES / BLOCKED
+- **Severity 3 mức**: BLOCK / FLAG / WARN
+
+**Skills R**: contract-auditor / loan-contract-auditor / service-contract-auditor / rental-contract-auditor / employment-contract-auditor / policy-auditor / pleading-validator / compliance-tax / compliance-fdi / compliance-safety / compliance-audit / benchmark-comparator / contract-redliner
+
+## Workflow (W)
+
+<Note>**Vai trò**: Tổng hợp output đa-skill thành dashboard executive 1 trang.</Note>
+
+- **Input**: N audit JSON (từ R skills)
+- **Output**: `dashboard.json` (health score + heatmap + top 5 risks) + `dashboard-report.md`
+- **KHÔNG gọi skill khác** — pure aggregation
+- **Health score**: `100 - (BLOCK*15 + FLAG*7 + WARN*2)`
+
+**Skills W**: compliance-dashboard / debt-escalation
+
+## Domain (D)
+
+<Note>**Vai trò**: Kho tri thức Q&A pháp luật VN. Mọi card có cite verified.</Note>
+
+- **Input**: query string + matter_type/tags hint
+- **Output**: top 3 cards + synthesis answer + cite consolidated
+- **Scoring deterministic**: `keyword*2 + tag*1 + topic*3`
+- **KHÔNG vector embedding** — chạy offline
+
+**Skills D**: knowledge-base / clause-library / vn-law-search
+
+## Meta (M)
+
+<Note>**Vai trò**: Define workflow / route case → pipeline. KHÔNG execute (đó là harness runtime).</Note>
+
+- **Input**: pipeline definition hoặc case profile
+- **Output**: pipeline SPEC + execution roadmap
+- **Validation 5 rule**: DAG no cycle / whitelist skill / depends_on valid / output unique / placeholder resolve
+
+**Skills M**: legal-pipeline / legal-case-runner
+
+## Extractor (X)
+
+<Note>**Vai trò**: Trích dữ liệu cấu trúc từ tài liệu text. Output JSON cấu trúc.</Note>
+
+- **Input**: tài liệu HĐ / đơn / quyết định
+- **Output**: structured JSON (obligations, deadlines, parties, amounts)
+
+**Skills X**: obligation-extractor / citation-linker / conflict-checker / matter-tracker / case-timeline / document-formatting
+
+## Bảng so sánh nhanh
+
+| Archetype | Input | Output | Mục đích |
+|-----------|-------|--------|----------|
+| Generator | JSON schema | docx + md | Tạo artifact mới |
+| Reviewer | artifact | audit.json + report | Phát hiện rủi ro |
+| Workflow | N audit JSON | dashboard | Tổng hợp executive |
+| Domain | query string | top 3 cards | Tra cứu Q&A |
+| Meta | spec/case | pipeline plan | Define/route workflow |
+| Extractor | tài liệu text | structured JSON | Bóc data |

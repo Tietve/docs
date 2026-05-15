@@ -1,0 +1,27 @@
+---
+title: "legal-citation-linker"
+description: "Linker — convert cite text → URL chính thức (vbpl.vn / TVPL)"
+icon: "link"
+---
+
+<Note>**Archetype**: Extractor (X) — citation enrichment</Note>
+
+## Vấn đề giải quyết
+
+Memo / báo cáo có cite "BLDS Đ.466 K.5" — reader phải tự search. Cần auto-link đến URL chính thức.
+
+## Output
+
+- Input: text có cite "BLDS Đ.466 K.5"
+- Output: `[BLDS Đ.466 K.5](https://vbpl.vn/...)`
+
+## Source priority
+
+1. **vbpl.vn** (chính thức - Bộ Tư pháp)
+2. **TVPL** (thuvienphapluat.vn — backup)
+
+## Hỗ trợ workflow
+
+- Auto-enrich memo / báo cáo cite
+- Pre-publish docs CTY internal wiki
+- Combine với mọi Generator/Reviewer skill output

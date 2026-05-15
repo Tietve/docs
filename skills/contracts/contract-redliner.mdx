@@ -1,0 +1,65 @@
+---
+title: "legal-contract-redliner"
+description: "Bridge Skill #1 → Skill #2: redline HĐ với inline markers theo stance"
+icon: "highlighter"
+---
+
+<Note>**Archetype**: Reviewer-Generator hybrid — Bridge layer</Note>
+
+## Vấn đề giải quyết
+
+Bạn audit HĐ ra 5 issues. Bây giờ cần soạn redline cụ thể (thêm/sửa/xóa câu chữ) gửi counter-party. Mỗi issue cần inline marker `[ADD]` / `[DELETE]` / `[REPLACE]`.
+
+## Pattern: Path B inline markers
+
+```markdown
+Điều 5. Phạt vi phạm
+[REPLACE: "Bên vi phạm chịu phạt 12% giá trị HĐ" → "Bên vi phạm chịu phạt 8% giá trị HĐ"]
+[CITE: LTM Đ.301 max 8%]
+[STANCE: pro-buyer]
+```
+
+## 18 templates redline (5 loại)
+
+| Loại | Số template | Use case |
+|------|-------------|----------|
+| T-MB | 5 | Mua bán B2B |
+| T-LD | 3 | Hợp đồng lao động |
+| T-VAY | 3 | HĐ vay |
+| T-DL | 3 | Đại lý |
+| T-GEN | 4 | General clauses (FM, dispute, term) |
+
+## Stance REQUIRED
+
+- `pro-buyer` / `pro-seller` / `pro-employer` / `pro-employee` / `neutral`
+- Stance khác → redline khác (ví dụ "phạt 8% max" có thể "thêm" nếu pro-buyer hoặc "bỏ" nếu pro-seller)
+
+## Input/Output
+
+<CodeGroup>
+```json input.json
+{
+  "contract_text": "...",
+  "audit_issues": [...],
+  "stance": "pro-buyer",
+  "template_set": "T-MB"
+}
+```
+
+```markdown redline-output.md
+[ADD §5.1] Bên bán cam kết bảo hành 12 tháng kể từ ngày bàn giao.
+[CITE: BLDS Đ.446]
+[REPLACE §6.2] "phạt 15%" → "phạt 8%" [CITE: LTM Đ.301]
+```
+</CodeGroup>
+
+## Hỗ trợ workflow
+
+- Sales team negotiate vendor counter
+- Legal ops finalize HĐ sau audit
+- M&A counsel revise SPA pre-signing
+
+## Lưu ý
+
+- safe-docx MCP cần để Path A upgrade (apply redline trực tiếp lên docx)
+- Hiện tại Path B inline markdown markers

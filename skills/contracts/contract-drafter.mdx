@@ -1,0 +1,49 @@
+---
+title: "legal-contract-drafter"
+description: "UMBRELLA Generator 5 nhánh: MB B2B / DV / HĐLĐ / Vay / Đại lý"
+icon: "pen-fancy"
+---
+
+<Note>**Archetype**: Generator (G) — UMBRELLA 5 branch</Note>
+
+## Vấn đề giải quyết
+
+Soạn HĐ chuẩn pháp lý mỗi lần ký vendor mới = tốn 2-3 ngày luật sư. Cần emit JSON 10 điều canonical → render docx pro-side hoặc neutral.
+
+## 5 nhánh phủ
+
+| Branch | Loại HĐ | Điều khoản chính | Smoke verified |
+|--------|---------|------------------|----------------|
+| 02a | MB B2B | BLDS Đ.430-449 + LTM | 14KB docx |
+| 02b | Dịch vụ | BLDS Đ.513-521 + SHTT | 15.6KB consulting / 16.7KB IT |
+| 02c | HĐLĐ | BLLĐ Đ.13-22 + NĐ 293/2025 | NLĐ thử việc PASS |
+| 02d | Vay | BLDS Đ.464-471 | B2B 13.6KB / P2P 13.1KB |
+| 02e | Đại lý | LTM Đ.166-177 | Độc quyền 14.5KB / không độc quyền 14.6KB |
+
+## Cite trap quan trọng
+
+- **Đ.437 ≠ Đ.438** (số lượng vs đồng bộ)
+- **BLDS Đ.446 vs LTM Đ.49** (bảo hành dân sự vs thương mại) — KHÔNG SHTT Đ.46
+- **BLDS Đ.357** lãi chậm TT HĐ MB (KHÔNG Đ.468 — Đ.468 = HĐ vay)
+- **SHTT Đ.738 KHÔNG TỒN TẠI** (luật chỉ 105 điều)
+- **Đ.520/Đ.521 swap rủi ro cao** — 520 chấm dứt / 521 TIẾP TỤC
+- **LTM Đ.81** = đại lý đa cấp ≠ sub-contractor (dùng BLDS Đ.517 K.2)
+- **HĐ Vay**: KHÔNG LTM phạt 8%, FM KHÔNG miễn trả tiền
+- **Đại lý Đ.177**: 60 ngày MIN bắt buộc thông báo chấm dứt
+- **Độc quyền** MUST flag Luật CT 2018 Đ.27
+
+## Pattern: schema-as-spec
+
+<Steps>
+  <Step title="Validate input JSON">Theo `schemas/input.schema.json`</Step>
+  <Step title="Emit canonical clauses">10 điều base + branch-specific clauses</Step>
+  <Step title="Render docx">Formatter convert JSON → docx via `docx` package</Step>
+  <Step title="Smoke verify">PowerShell Get-Item byte size ≥ 13KB</Step>
+</Steps>
+
+## Hỗ trợ workflow
+
+- Procurement team chuẩn HĐ vendor templates
+- HR team soạn HĐLĐ + thử việc bulk
+- Sales team đóng HĐ B2B fast-track
+- Pipeline `PIPELINE-CONTRACT-REVIEW`: #2 drafter → #4 redliner → #5 memo

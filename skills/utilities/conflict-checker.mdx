@@ -1,0 +1,34 @@
+---
+title: "legal-conflict-checker"
+description: "Conflict of interest checker cho LS / luật sư đại diện"
+icon: "shield-halved"
+---
+
+<Note>**Archetype**: Extractor (X) — COI screening</Note>
+
+## Vấn đề giải quyết
+
+LS firm nhận case mới — phải check conflict of interest với client cũ. Manual check = miss khi case-load lớn.
+
+## Input
+
+- Parties trong case mới
+- Database client cũ + nhân vật liên quan
+
+## Output
+
+- `conflict_report.json` — match score / severity
+- Verdict: NO_CONFLICT / POTENTIAL_CONFLICT / DIRECT_CONFLICT
+
+## Match criteria
+
+- Tên party (fuzzy match)
+- Mã số DN
+- Người đại diện
+- Ngành KD overlap
+
+## Hỗ trợ workflow
+
+- Law firm intake screening
+- M&A counsel COI declaration
+- In-house GC cross-team conflict check

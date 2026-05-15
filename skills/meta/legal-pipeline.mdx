@@ -1,0 +1,42 @@
+---
+title: "legal-pipeline"
+description: "Define pipeline reusable: order skills + I/O mapping (SPEC layer)"
+icon: "diagram-project"
+---
+
+<Note>**Archetype**: Meta (M) — SPEC layer FIRST precedent</Note>
+
+## Vấn đề giải quyết
+
+Mỗi lần M&A DD bạn nhớ "chạy #34 → #35 → #36 → #37 parallel → #38". Lần sau quên. Cần spec hoá pipeline.
+
+## Pattern
+
+- Define pipeline = ordered set of skills + I/O mapping
+- **KHÔNG runtime execution** (đó là harness Claude Code / OpenCode)
+- **KHÔNG modify existing 39 skills**
+- Pure markdown + JSON spec
+
+## 2 pipeline mẫu
+
+1. **PIPELINE-DD-FULL** (M&A DD, 5 skills): #34+#35+#36+#37 parallel → #38 dashboard
+2. **PIPELINE-CONTRACT-REVIEW** (HĐ vendor, 3 skills): #1 → #4 → #5 sequential
+
+## 5 validation rules
+
+1. DAG no cycles (topological sort)
+2. Skill name trong **45-skill catalog whitelist**
+3. depends_on reference step_id đã định nghĩa
+4. output_aliases unique
+5. {{x}} placeholder resolve được
+
+## Smoke verified
+
+- PIPELINE-DD-FULL: spec 11819B + roadmap 14865B
+- PIPELINE-CONTRACT-REVIEW: spec 11474B + roadmap 14929B
+
+## Hỗ trợ workflow
+
+- SOP designer build reusable workflows
+- Pháp chế team standardize patterns
+- Harness designer build runtime

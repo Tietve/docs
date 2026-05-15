@@ -1,0 +1,42 @@
+---
+title: "legal-benchmark-comparator"
+description: "So sánh side-by-side 2-5 hợp đồng theo 6 trục pháp lý"
+icon: "table-columns"
+---
+
+<Note>**Archetype**: Reviewer (R) — comparison engine</Note>
+
+## Vấn đề giải quyết
+
+Procurement đưa 3 HĐ vendor đề xuất (Salesforce/HubSpot/Zoho). Cần chọn nhanh + biện luận với business team. Đọc từng bản 30 trang mỏi mắt.
+
+## 6 trục so sánh
+
+| Trục | Metric | Cite |
+|------|--------|------|
+| Giá | Total cost / Năm | BLDS Đ.431 |
+| Phạt | % vi phạm (max 8% LTM) | LTM Đ.301 |
+| Lãi chậm trả | %/năm | BLDS Đ.357 |
+| IP | Ownership clause | SHTT Đ.39 + Đ.14 |
+| Chấm dứt | Termination right | BLDS Đ.428 |
+| Tranh chấp | Toà án / VIAC / SIAC | BLTTDS / Luật TTTM |
+
+Mỗi trục verdict: 🟢 best / 🟡 acceptable / 🔴 risk.
+
+## Output: matrix + report
+
+- `matrix.json` — máy đọc, JSON cấu trúc
+- `report.md` — báo cáo human-readable cho sếp
+- `total_score` 0-12 (max 2pt × 6 trục)
+- Verdict: APPROVED (≥9) / REQUEST_CHANGES (5-8) / BLOCKED (<5)
+
+## Smoke verified
+
+- case-01: 3 HĐ vendor SaaS so sánh → matrix 9337B + report 10336B
+- case-02: 2 HĐ DV outsource → 13933B + 11761B
+
+## Hỗ trợ workflow
+
+- M&A team chọn target trong cluster
+- Procurement RFP final selection
+- In-house GC benchmark HĐ firm vs vendor

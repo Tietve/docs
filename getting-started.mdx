@@ -1,0 +1,84 @@
+---
+title: "Bắt đầu nhanh"
+description: "Cài Mintlify, gọi skill, đọc kết quả trong 5 phút"
+icon: "rocket"
+---
+
+## 1. Cài đặt môi trường
+
+<CodeGroup>
+```bash Mintlify CLI
+npm i -g mintlify
+mint dev
+```
+
+```powershell PowerShell
+npm i -g mintlify
+mint dev
+```
+</CodeGroup>
+
+Mở trình duyệt: `http://localhost:3000` để xem docs này local.
+
+## 2. Cấu trúc 1 skill
+
+Mỗi skill nằm trong `.claude/skills/legal-*/` với layout chuẩn:
+
+```
+.claude/skills/legal-{name}/
+├── SKILL.md                   # prompt + protocol
+├── schemas/
+│   ├── input.schema.json      # JSON Schema validate input
+│   └── output.schema.json     # JSON Schema validate output
+├── references/                # cite anchors + checklist + templates
+│   ├── cite-anchors.md
+│   └── checklist.md
+├── examples/                  # 2 smoke case
+│   ├── case-01/
+│   │   ├── input.json
+│   │   ├── output.json
+│   │   └── walkthrough.md
+│   └── case-02/...
+└── README.md                  # cách dùng
+```
+
+## 3. Gọi skill (Claude Code)
+
+<Steps>
+  <Step title="Chuẩn bị input JSON">
+    Copy schema input từ `.claude/skills/legal-{name}/schemas/input.schema.json`, điền data case của bạn.
+  </Step>
+  <Step title="Invoke skill">
+    Gõ `/legal-{name}` trong Claude Code, paste JSON input.
+  </Step>
+  <Step title="Đọc output">
+    Robot trả về output JSON + report markdown. File save tại working directory.
+  </Step>
+  <Step title="Verify cite">
+    Mọi cite có format `BLDS Đ.{số} K.{khoản}` — check ngược ngay điều luật để tránh hallucination.
+  </Step>
+</Steps>
+
+## 4. Ví dụ end-to-end
+
+<AccordionGroup>
+  <Accordion title="Audit HĐ NDA — 30 giây">
+    Input: NDA 4 trang JSON. Skill `legal-contract-auditor` chạy 6-pillar checklist → output `audit.json` với 5 issues (1 BLOCK + 2 FLAG + 2 WARN) + report.md 12KB có verdict APPROVED_WITH_CHANGES.
+  </Accordion>
+  <Accordion title="Soạn HĐ MB B2B — 45 giây">
+    Input: 10 trường (bên A/B/object/price/payment/...). Skill `legal-contract-drafter` (branch HĐ MB) emit JSON 10 điều canonical → render docx 15KB chuẩn pháp lý pro-side.
+  </Accordion>
+  <Accordion title="M&A DD full — 25-45 phút">
+    Input: company profile + 4 source files (tax / fdi / safety / license). Pipeline `PIPELINE-DD-FULL` chạy #34+#35+#36+#37 parallel → #38 dashboard tổng hợp health score 0-100 + top 5 risks.
+  </Accordion>
+</AccordionGroup>
+
+## 5. Khi gặp lỗi
+
+<Warning>
+**Cite hallucination phổ biến** — robot ghi "BLDS Đ.466 K.5" nhưng K.5 KHÔNG TỒN TẠI cho HĐ MB (chỉ HĐ vay). Luôn verify cite trước khi dùng artifact pháp lý.
+</Warning>
+
+<Tip>
+**Smoke test bytes mismatch** — nếu file output kích thước rỗng (<2KB), prompt có thể stream timeout. Re-spawn lại skill thường resolve được.
+</Tip>

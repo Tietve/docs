@@ -1,0 +1,69 @@
+---
+title: "legal-contract-auditor"
+description: "Audit umbrella 3 nhánh: NDA / HĐLĐ / HĐ Vay theo 6-pillar checklist"
+icon: "file-shield"
+---
+
+<Note>**Archetype**: Reviewer (R) — UMBRELLA 3 branch</Note>
+
+## Vấn đề giải quyết
+
+Pháp chế nhận HĐ từ business side — không có thời gian đọc kỹ từng điều. Cần robot quét nhanh, list issue theo severity (BLOCK / FLAG / WARN), kèm cite điều luật.
+
+## Phạm vi 3 nhánh
+
+| Branch | Loại HĐ | Cite chính | Smoke verified |
+|--------|---------|------------|----------------|
+| 01a | NDA | BLDS Đ.387 / SHTT Đ.84 / BLDS Đ.387-389 | NDA 4 trang → 5 issues |
+| 01b | HĐLĐ | BLLĐ Đ.21 / Đ.20 / Đ.49 / NĐ 293/2025 | HĐLĐ thiếu BHXH → flag K.2 |
+| 01c | HĐ Vay | BLDS Đ.464-471 / Đ.466 K.5 | HĐ Vay 15% lãi → flag vượt 150% |
+
+## Cite trap quan trọng
+
+- **Đ.405 ≠ Đ.3** (vô hiệu HĐ chính khác mục đích)
+- **Luật CT 45 ≠ SHTT 84** (không lẫn lộn cạnh tranh vs bảo mật)
+- **Đ.471 = họ/hụi** (KHÔNG phải HĐ vay) — dùng **Đ.470 K.2**
+- **Đ.469 vay không kỳ hạn** vs **Đ.470 vay có kỳ hạn**
+- **Đ.466 K.5 lãi quá hạn 150%** (CHỈ HĐ Vay, không HĐ MB)
+
+## Input/Output
+
+<CodeGroup>
+```json input.json
+{
+  "contract_type": "NDA | HĐLĐ | loan",
+  "parties": [{"name": "...", "role": "..."}],
+  "scope": "...",
+  "terms": {...},
+  "jurisdiction": "VN"
+}
+```
+
+```json output.json
+{
+  "verdict": "APPROVED_WITH_CHANGES",
+  "issues": [
+    {
+      "id": "V-NDA-01",
+      "severity": "FLAG",
+      "title": "Phạm vi bí mật quá rộng",
+      "cite_anchors": ["BLDS Đ.387"],
+      "remediation": "..."
+    }
+  ],
+  "issue_count": {"BLOCK": 1, "FLAG": 2, "WARN": 2}
+}
+```
+</CodeGroup>
+
+## Hỗ trợ workflow
+
+- In-house GC quick triage HĐ mỗi tuần
+- M&A buyer DD scan target contracts (kết hợp `legal-benchmark-comparator`)
+- Legal ops audit batch trước renewal
+
+## Files trong skill
+
+- 20+ files / 3 branches
+- Reference: `cite-anchors.md` / `nda-checklist.md` / `hdld-checklist.md` / `loan-checklist.md`
+- Examples: 5 smoke cases verified PASS

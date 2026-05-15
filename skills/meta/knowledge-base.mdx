@@ -1,0 +1,46 @@
+---
+title: "legal-knowledge-base"
+description: "Kho 34 knowledge cards Q&A pháp luật VN có cite verified"
+icon: "book-open-reader"
+---
+
+<Note>**Archetype**: Domain (D) — FIRST pure Domain precedent</Note>
+
+## Vấn đề giải quyết
+
+Junior LS hỏi "phạt vi phạm HĐ MB B2B max bao nhiêu %?". Google → linh tinh. ChatGPT → fabricate cite. Cần kho có cite verified.
+
+## Pattern
+
+- 34 knowledge cards (markdown files trong `knowledge-cards/`)
+- KHÔNG vector embedding — pure markdown + deterministic scoring
+- Mỗi card MUST có **cite_anchors** trong frontmatter
+
+## 15 topics phủ
+
+HĐ chung / HĐ MB B2B / HĐ DV / HĐLĐ / HĐ Vay / HĐ Đại lý / Thuê / FDI / Thuế / IP / Tranh tụng / ATVSLĐ / Doanh nghiệp / PDPL / Thừa kế
+
+## Query scoring (deterministic)
+
+```
+score = keyword_in_question*2 + tag_match*1 + topic_match*3
+top 3 cards → synthesize answer + cite consolidated
+```
+
+## Card format
+
+Frontmatter: `id + topic + tags + cite_anchors + question + verdict_confidence`
+
+Body: Câu hỏi + Trả lời + Nuances + Related cards
+
+## Smoke verified
+
+- query-01: answer 4052B
+- query-02: answer 6146B
+- 34 cards distribution check PASS
+
+## Hỗ trợ workflow
+
+- Junior LS / paralegal tra cứu fast
+- Pre-meeting briefing
+- Onboarding training material

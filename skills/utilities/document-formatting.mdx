@@ -1,0 +1,30 @@
+---
+title: "legal-document-formatting"
+description: "Format chuẩn pháp lý VN: typography + heading numbering + tables"
+icon: "paragraph"
+---
+
+<Note>**Archetype**: Extractor (X) — formatter</Note>
+
+## Vấn đề giải quyết
+
+Văn bản pháp lý VN có chuẩn riêng (Điều/Khoản/Điểm hierarchy, font Times New Roman 13/14, margin chuẩn TT 01/2011-BNV). Generator skill emit JSON, formatter chuyển sang docx chuẩn.
+
+## Chuẩn format
+
+- **Font**: Times New Roman 13 (body), 14 (heading)
+- **Margin**: top 20-25mm / bottom 20-25mm / left 30-35mm / right 15-20mm
+- **Line spacing**: 1.5
+- **Đánh số**: "Điều 1. ..." / "1. ..." / "a) ..."
+- **Cite**: italic + cite anchor
+
+## Cite
+
+- **TT 01/2011/TT-BNV** thể thức và kỹ thuật trình bày VB
+- **NĐ 30/2020/NĐ-CP** công tác văn thư
+
+## Hỗ trợ workflow
+
+- All Generator skill outputs MUST conform
+- Word styles reusable across templates
+- Export PDF/A for archive

@@ -1,0 +1,38 @@
+---
+title: "legal-shareholder-meeting-drafter"
+description: "Soạn BB + NQ ĐHĐCĐ (LDN 2020 Đ.139-152)"
+icon: "users-line"
+---
+
+<Note>**Archetype**: Generator (G) — UMBRELLA BB + NQ ĐHĐCĐ JSC</Note>
+
+## Vấn đề giải quyết
+
+Công ty cổ phần phải có BB + NQ ĐHĐCĐ thường niên đúng quy định. Quên quorum / tỷ lệ thông qua → NQ vô hiệu.
+
+## Cite anchors quan trọng
+
+- **LDN 2020 Đ.143 K.1** triệu tập ≥21 ngày
+- **LDN 2020 Đ.145** quorum 50%/33%/no-min (lần 1/2/3)
+- **LDN 2020 Đ.148 K.1** NQ quan trọng ≥ 65% (đổi điều lệ, M&A, giải thể)
+- **LDN 2020 Đ.148 K.2** NQ thông thường > 50%
+- **LDN 2020 Đ.152 K.2** BB ký Chủ tọa + Thư ký
+
+## Phạm vi
+
+CHỈ ĐHĐCĐ (JSC). KHÔNG HĐTV (LLC) — đó là Skill `legal-member-council-meeting-drafter`.
+
+## Smoke verified
+
+- case-01 NQ thường niên 2025 → 13.4KB
+- case-02 NQ tăng vốn 65% → 13KB
+
+## Hỗ trợ workflow
+
+- Corporate secretary team annual filing
+- IPO prep AGM minutes archive
+- M&A close shareholder approval
+
+## Lưu ý
+
+- Wave 5 workaround: formatter reuse `bien-ban-hop-hdqt/` hardcode "HĐQT" — Wave 6+ tạo formatter ĐHĐCĐ riêng

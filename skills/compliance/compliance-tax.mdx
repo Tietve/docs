@@ -1,0 +1,42 @@
+---
+title: "legal-compliance-tax"
+description: "Audit thuế 4 trục: VAT / CIT / FCT / Transfer Pricing"
+icon: "receipt"
+---
+
+<Note>**Archetype**: Reviewer (R) D3 Tax Compliance</Note>
+
+## Vấn đề giải quyết
+
+HĐ với vendor nước ngoài (Salesforce, AWS) — phải khấu trừ FCT 10% (5% VAT + 5% CIT). Quên = truy thu + phạt 20% + lãi chậm 0.03%/ngày.
+
+## 4 trục audit
+
+1. **VAT** (Luật GTGT) — applicability + rate 0/5/8/10%
+2. **CIT** (Luật TNDN) — deductible / non-deductible expenses
+3. **FCT** (TT 103/2014) — foreign contractor 10% deemed
+4. **Transfer Pricing** (NĐ 132/2020) — GTLK > 50B/năm MUST file
+
+## Cite anchors
+
+- **Luật QLT 38/2019/QH14** hiệu lực 01/07/2020
+- **Luật GTGT 13/2008** + sđ 31/2013, 71/2014, 106/2016
+- **Luật TNDN 14/2008** + sđ 32/2013, 71/2014
+- **TT 103/2014/TT-BTC** FCT 10% deemed
+- **NĐ 132/2020/NĐ-CP** transfer pricing
+- **NQ 142/2024/QH15** VAT 8% giảm
+
+## Out of scope
+
+- Thuế XNK → tách skill khác (chưa có)
+
+## Smoke verified
+
+- case-01: SaaS US thiếu FCT → audit 7698B + report 8402B
+- case-02: Royalty parent transfer → 9475B + 10762B
+
+## Hỗ trợ workflow
+
+- CFO/kế toán trưởng pre-thanh tra thuế
+- M&A DD tax health-check
+- Vendor onboarding compliance gate

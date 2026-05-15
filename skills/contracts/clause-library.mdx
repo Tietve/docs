@@ -1,0 +1,37 @@
+---
+title: "legal-clause-library"
+description: "Kho điều khoản mẫu (clause bank) tra cứu nhanh theo loại HĐ"
+icon: "books"
+---
+
+<Note>**Archetype**: Domain (D) — clause bank lookup</Note>
+
+## Vấn đề giải quyết
+
+Mỗi lần soạn HĐ, lục lại clause "Force Majeure" / "Limitation of Liability" / "IP Assignment" trong các template cũ. Lưu tản mạn → mất thời gian.
+
+## Phạm vi
+
+- ~80+ clauses chia theo:
+  - HĐ MB (warranty, defective, delivery)
+  - HĐ DV (SOW, IP work-for-hire, change order)
+  - HĐLĐ (NDA, non-compete, severance)
+  - General (FM, dispute, governing law)
+
+## Pattern: query → top 3 clauses
+
+```json
+{
+  "query": "force majeure HĐ MB B2B",
+  "tags": ["FM", "B2B"],
+  "stance": "pro-buyer"
+}
+```
+
+Output: 3 clauses ranked by relevance + stance fit + cite anchors.
+
+## Hỗ trợ workflow
+
+- Drafter team reuse clauses standardized
+- Combine với `legal-contract-drafter` để inject clauses
+- Junior LS học pattern điều khoản

@@ -1,0 +1,33 @@
+---
+title: "legal-debt-escalation"
+description: "Workflow tổng thể đòi nợ 3-stage: gentle → formal → litigation"
+icon: "stairs"
+---
+
+<Note>**Archetype**: Workflow (W) — escalation orchestrator</Note>
+
+## Vấn đề giải quyết
+
+DN có 50+ khoản nợ AR overdue. Cần workflow chuẩn: stage 1 SMS/Email → stage 2 Letter L1/L2 → stage 3 L3 + chuẩn bị Đơn KK.
+
+## 3 stage workflow
+
+| Stage | Skill chạy | Output |
+|-------|------------|--------|
+| Gentle | (tự động email reminder) | SMS/Email log |
+| Formal | `legal-debt-warning-letter` L1+L2 | Letter docx |
+| Litigation prep | `legal-debt-warning-letter` L3 + `legal-pleading-validator` + `legal-tranh-tung-drafter` | Đơn KK + audit |
+
+## Integration
+
+Pipeline CUSTOM-DEBT trong `legal-case-runner`:
+- `legal-obligation-extractor` → identify obligations
+- → `legal-debt-warning-letter` L1/L2/L3
+- → `legal-pleading-validator` validate Đơn KK
+- → `legal-tranh-tung-drafter` finalize
+
+## Hỗ trợ workflow
+
+- AR team mass debt collection
+- Pre-litigation paper trail compliance
+- Statute of limitations alert (3 năm Đ.429)

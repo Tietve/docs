@@ -1,0 +1,23 @@
+---
+title: "legal-case-timeline"
+description: "Sinh timeline chronological của 1 case/dispute từ events log"
+icon: "timeline"
+---
+
+<Note>**Archetype**: Extractor (X) — chronological timeline</Note>
+
+## Vấn đề giải quyết
+
+Dispute case có 30+ events tản mạn (emails, calls, payments, breaches). Cần timeline thứ tự thời gian + cite evidence cho phiên Toà.
+
+## Output
+
+- `timeline.json` — events sorted by date
+- `timeline.md` — human-readable narrative
+- Mỗi event link → evidence file (email/SMS/payment proof)
+
+## Hỗ trợ workflow
+
+- LS tranh tụng chuẩn bị evidence
+- Internal investigation timeline reconstruction
+- Combine với `legal-deposition-prep` cho phiên Toà

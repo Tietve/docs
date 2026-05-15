@@ -1,126 +1,133 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "Firlaw Legal Skill Catalog",
+  "description": "Catalog 46 AI legal skill cho pháp chế doanh nghiệp Việt Nam",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#0F766E",
+    "light": "#14B8A6",
+    "dark": "#0D5F5A"
   },
   "favicon": "/favicon.svg",
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/components",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "Agent ready",
-            "pages": [
-              "agent-ready/prompt",
-              "agent-ready/visibility",
-              "agent-ready/contextual",
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          }
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
   },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
+  "appearance": {
+    "default": "light"
   },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Tổng quan",
+        "groups": [
+          {
+            "group": "Bắt đầu",
+            "pages": ["introduction", "getting-started", "archetypes", "cite-anchors-policy"]
+          }
+        ]
+      },
+      {
+        "tab": "Catalog Skill",
+        "groups": [
+          {
+            "group": "Hợp đồng",
+            "pages": [
+              "skills/contracts/contract-auditor",
+              "skills/contracts/contract-drafter",
+              "skills/contracts/contract-redliner",
+              "skills/contracts/loan-contract-auditor",
+              "skills/contracts/service-contract-auditor",
+              "skills/contracts/rental-contract-auditor",
+              "skills/contracts/share-transfer-contract-drafter",
+              "skills/contracts/clause-library",
+              "skills/contracts/benchmark-comparator"
+            ]
+          },
+          {
+            "group": "Doanh nghiệp",
+            "pages": [
+              "skills/corporate/governance-drafter",
+              "skills/corporate/shareholder-meeting-drafter",
+              "skills/corporate/member-council-meeting-drafter",
+              "skills/corporate/meeting-notice-drafter",
+              "skills/corporate/internal-rules-drafter",
+              "skills/corporate/policy-auditor",
+              "skills/corporate/power-of-attorney-drafter",
+              "skills/corporate/real-estate-poa-drafter"
+            ]
+          },
+          {
+            "group": "Lao động",
+            "pages": [
+              "skills/employment/employment-contract-auditor",
+              "skills/employment/employment-termination-drafter",
+              "skills/employment/disciplinary-decision-drafter"
+            ]
+          },
+          {
+            "group": "Compliance",
+            "pages": [
+              "skills/compliance/compliance-tax",
+              "skills/compliance/compliance-fdi",
+              "skills/compliance/compliance-safety",
+              "skills/compliance/compliance-audit",
+              "skills/compliance/compliance-dashboard",
+              "skills/compliance/compliance-letter-drafter"
+            ]
+          },
+          {
+            "group": "Tranh tụng & Thu hồi nợ",
+            "pages": [
+              "skills/litigation/tranh-tung-drafter",
+              "skills/litigation/pleading-validator",
+              "skills/litigation/deposition-prep",
+              "skills/litigation/debt-warning-letter",
+              "skills/litigation/debt-escalation",
+              "skills/litigation/warning-letter-drafter"
+            ]
+          },
+          {
+            "group": "Sở hữu trí tuệ & Dữ liệu",
+            "pages": [
+              "skills/ip-data/trademark-application-drafter",
+              "skills/ip-data/data-privacy-policy-drafter",
+              "skills/ip-data/dpa-generator"
+            ]
+          },
+          {
+            "group": "Meta & Workflow",
+            "pages": [
+              "skills/meta/legal-pipeline",
+              "skills/meta/legal-case-runner",
+              "skills/meta/knowledge-base",
+              "skills/meta/memo-drafter"
+            ]
+          },
+          {
+            "group": "Tiện ích",
+            "pages": [
+              "skills/utilities/vn-law-search",
+              "skills/utilities/citation-linker",
+              "skills/utilities/conflict-checker",
+              "skills/utilities/document-formatting"
+            ]
+          },
+          {
+            "group": "Intake & Tracking",
+            "pages": [
+              "skills/intake/matter-tracker",
+              "skills/intake/case-timeline",
+              "skills/intake/obligation-extractor"
+            ]
+          }
+        ]
+      }
+    ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "github": "https://github.com/openclaw/firlaw"
     }
   }
 }

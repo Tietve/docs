@@ -1,0 +1,38 @@
+---
+title: "legal-vn-law-search"
+description: "Tra cứu điều luật VN v5 Tavily-first — FOUNDATION skill"
+icon: "magnifying-glass"
+---
+
+<Note>**Archetype**: Domain (D) — FOUNDATION cho 31 skill còn lại</Note>
+
+## Vấn đề giải quyết
+
+Mọi skill cần verify cite điều luật. Hardcode reference file → outdated nhanh. Cần search engine pháp luật VN real-time.
+
+## v5 architecture (final)
+
+- Pure **Tavily MCP** (`tavily-mcp@0.2.19`)
+- WebFetch LOẠI HOÀN TOÀN (bị paywall TVPL)
+- 5 PATHs / 9 cases / 14 ref files
+- Cite verify MANDATORY (chống hallucination)
+
+## Lessons live testing
+
+- type= dùng **SỐ** (10/11) — KHÔNG enum text
+- TRUNCATION paywall (chỉ chương đầu free)
+- match=true chỉ cho số hiệu
+- LLM rerank inline KHÔNG cần embedding
+- Hallucination live: Đ.466 K.5 "10%/năm" SAI → 150% lãi HĐ
+
+## Cite anchor verify (ví dụ)
+
+- NĐ 293/2025 ký 10/11/2025, hiệu lực 01/01/2026 ✓
+- LĐĐ 2024 (Luật 31/2024) hiệu lực 01/8/2024 ✓
+- LCC 2024 (Luật 34/2024) hiệu lực 01/7/2025 ✓
+
+## Hỗ trợ workflow
+
+- Mọi skill khác MUST use khi cần verify cite mới
+- Junior LS quick lookup
+- Pháp chế audit cite trong artifact

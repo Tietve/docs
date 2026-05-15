@@ -1,0 +1,37 @@
+---
+title: "legal-obligation-extractor"
+description: "Trích nghĩa vụ / deadline / payment terms từ HĐ → structured JSON"
+icon: "list-tree"
+---
+
+<Note>**Archetype**: Extractor (X) — obligation parsing</Note>
+
+## Vấn đề giải quyết
+
+HĐ 30 trang có 50+ nghĩa vụ rải rác. Operations team cần list tracker: ai làm gì, deadline khi nào, penalty bao nhiêu nếu trễ.
+
+## Output
+
+- `obligations.json` — array nghĩa vụ
+- Mỗi obligation có: party / action / deadline / cite_clause / penalty_if_missed
+
+## Example
+
+```json
+[
+  {
+    "party": "Bên Bán",
+    "action": "Giao hàng",
+    "deadline": "2026-08-15",
+    "cite_clause": "Điều 4 HĐ MB 2026/05",
+    "penalty_if_missed": "8% giá trị HĐ (LTM Đ.301)"
+  }
+]
+```
+
+## Hỗ trợ workflow
+
+- Operations team SLA tracker
+- AR/AP team payment schedule
+- Combine `legal-debt-warning-letter` khi miss deadline
+- Pipeline `CUSTOM-DEBT` step 1 cho `legal-case-runner`
