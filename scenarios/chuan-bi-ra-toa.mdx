@@ -1,0 +1,169 @@
+---
+title: "Chuẩn bị ra Tòa"
+description: "Đơn KK chuẩn mẫu → 50 câu hỏi xét hỏi → audit pre-filing — 30-45 phút"
+icon: "gavel"
+---
+
+## Khi nào dùng quy trình này
+
+- LS tranh tụng nhận case dân sự (đòi nợ, tranh chấp HĐ)
+- DN khởi kiện đối tác vi phạm
+- Khách hàng yêu cầu chuẩn bị phiên Tòa
+- Trước hôm hearing 1-2 tuần cần chuẩn bị
+
+<Warning>
+**Phạm vi**: CHỈ tranh tụng dân sự (BLTTDS 2015). KHÔNG cover hình sự (BLTTHS).
+</Warning>
+
+## Bạn cần chuẩn bị
+
+<Steps>
+  <Step title="Hồ sơ vụ việc">
+    HĐ gốc + email/SMS tranh chấp + bằng chứng vi phạm + định lượng thiệt hại
+  </Step>
+  <Step title="Bên đương sự">
+    Tên + địa chỉ + MST của Nguyên đơn + Bị đơn (+ Người có quyền lợi liên quan nếu có)
+  </Step>
+  <Step title="Yêu cầu khởi kiện">
+    Cụ thể: bồi thường bao nhiêu / huỷ HĐ / buộc thực hiện?
+  </Step>
+  <Step title="Danh sách nhân chứng + tài liệu">
+    Cho phần deposition prep (xét hỏi)
+  </Step>
+</Steps>
+
+## Flow 3 bước
+
+```mermaid
+graph LR
+    Start([Quyết định kiện]) --> Step1[Bước 1: Soạn Đơn KK<br/>Mẫu 01-DS BLTTDS]
+    Step1 --> Step2[Bước 2: Audit pre-filing<br/>6 mục kiểm tra]
+    Step2 --> Step3[Bước 3: Deposition prep<br/>30-50 câu xét hỏi]
+    Step3 --> Out([Hồ sơ sẵn sàng nộp Tòa])
+```
+
+## Chi tiết từng bước
+
+<AccordionGroup>
+  <Accordion title="Bước 1 — Soạn Đơn KK">
+    Robot `legal-tranh-tung-drafter`:
+    - Mẫu **01-DS BLTTDS 2015** (KHÔNG 01-HC — đó là hành chính)
+    - Cite **BLTTDS Đ.189** quyền KK
+    - Thẩm quyền lãnh thổ (Đ.39 K.1a — nơi bị đơn)
+    - Yêu cầu KK cụ thể + cơ sở pháp lý
+    - Án phí theo **NĐ 326/2016** (KHÔNG NĐ 220 đã hết hiệu lực)
+    
+    Output: `don-khoi-kien-2026-05-17.docx` ~12KB
+  </Accordion>
+  <Accordion title="Bước 2 — Audit pre-filing 6 mục">
+    Robot `legal-pleading-validator` check trước khi nộp Tòa, tránh bị từ chối:
+    
+    1. **Mẫu 01-DS đúng form**
+    2. **Thẩm quyền lãnh thổ** (Đ.39 K.1a)
+    3. **Thẩm quyền cấp Toà** (Huyện/Tỉnh — theo loại vụ việc, KHÔNG theo 200M threshold)
+    4. **Thời hiệu** (Đ.429 BLDS = 3 năm cho HĐ, Đ.623 = 30 năm BĐS thừa kế)
+    5. **Yêu cầu KK cụ thể** + cơ sở pháp lý
+    6. **Án phí** (NĐ 326/2016)
+    
+    Output: audit report + verdict ready/not_ready.
+  </Accordion>
+  <Accordion title="Bước 3 — Deposition prep">
+    Robot `legal-deposition-prep` sinh 30-50 câu hỏi chia 5 nhóm:
+    
+    1. **Identity** — xác minh nhân thân nhân chứng / bị đơn
+    2. **Background facts** — tiến trình giao dịch
+    3. **Contract terms** — điều khoản HĐ cụ thể
+    4. **Breach** — hành vi vi phạm
+    5. **Damages** — thiệt hại + quan hệ nhân quả
+    
+    Cite BLTTDS Đ.78/79/211/243/246/247/249.
+  </Accordion>
+</AccordionGroup>
+
+## Ví dụ thật: Đơn KK đòi nợ 1.2 tỷ VND
+
+**Tình huống**: Công ty ABC đòi nợ Công ty XYZ 1.2 tỷ + 26.6M lãi (60 ngày quá hạn) + 96M phạt (LTM Đ.301 8%).
+
+**Robot xuất**:
+
+1. **Đơn KK** (Bước 1) — 12KB:
+   - Nguyên đơn: ABC (TAND TP HCM, nơi XYZ trụ sở)
+   - Yêu cầu: 1.322 tỷ + lãi tiếp tục theo LTM Đ.306
+   - Cơ sở: HĐ DV ngày X, hoá đơn Y, vi phạm Đ.5
+   - Án phí: 33.3M (NĐ 326/2016, 0-1.3 tỷ = 36M base + 5% phần vượt 1 tỷ)
+   - Tài liệu kèm: HĐ + invoice + 3 letter L1/L2/L3 + chứng cứ giao hàng
+
+2. **Audit pre-filing** (Bước 2):
+   - 🟢 Mẫu 01-DS đúng
+   - 🟢 TAND TP HCM (đúng nơi bị đơn)
+   - 🟢 Thời hiệu còn (chưa quá 3 năm)
+   - 🟢 Yêu cầu cụ thể + cite BLDS Đ.351 / Đ.357 + LTM Đ.301 Đ.306
+   - 🟢 Án phí tính đúng
+   - **Verdict: READY TO FILE**
+
+3. **Deposition prep** (Bước 3) — 30 câu hỏi:
+   - Identity: 5 câu xác minh đại diện XYZ
+   - Background: 8 câu — quy trình ký HĐ, deliverable
+   - Contract terms: 6 câu — Điều 5 thanh toán cụ thể nào
+   - Breach: 7 câu — tại sao không thanh toán, có thông báo BCƯ
+   - Damages: 4 câu — confirm số tiền + lãi tính đúng không
+
+## Kết quả nhận được
+
+<CardGroup cols={2}>
+  <Card title="Đơn KK" icon="scale-balanced">
+    Mẫu 01-DS BLTTDS đầy đủ, ~12KB docx
+  </Card>
+  <Card title="Audit report pre-filing" icon="magnifying-glass-chart">
+    6 mục check, verdict ready/not_ready
+  </Card>
+  <Card title="Deposition Q&A" icon="comments">
+    30-50 câu hỏi 5 nhóm BLTTDS, ~10KB markdown
+  </Card>
+  <Card title="Tài liệu checklist" icon="list-check">
+    Danh sách bằng chứng cần kèm Đơn KK
+  </Card>
+</CardGroup>
+
+## Thời gian
+
+- Soạn Đơn KK: 10-15 phút
+- Audit pre-filing: 5 phút
+- Deposition prep: 10-15 phút
+- **Tổng**: 25-35 phút
+
+## Lưu ý quan trọng
+
+<Warning>
+**Cite trap thường gặp ở tranh tụng**:
+- Mẫu **01-DS** dân sự (KHÔNG 01-HC hành chính)
+- **Đ.186 BLTTDS = QUYỀN khởi kiện ≠ thời hiệu**
+- **Đ.429 BLDS = thời hiệu 3 năm HĐ** (sửa từ 2 năm BLDS 2005)
+- **Thừa kế**: 30 năm BĐS / 10 năm động sản (Đ.623)
+- **Chia TS chung**: KHÔNG thời hiệu (Đ.155)
+- **Án phí**: NĐ 326/2016 (KHÔNG NĐ 220 đã cũ)
+- **Đơn yêu cầu** cite Đ.362-365 ≠ Đơn KK Đ.189
+- **Tranh chấp HĐLĐ CHỈ Toà án** (không VIAC)
+</Warning>
+
+## Robot dùng trong flow
+
+<CardGroup cols={3}>
+  <Card title="Soạn Đơn KK" icon="scale-balanced" href="/skills/litigation/tranh-tung-drafter">
+    legal-tranh-tung-drafter
+  </Card>
+  <Card title="Pre-filing audit" icon="magnifying-glass-chart" href="/skills/litigation/pleading-validator">
+    legal-pleading-validator
+  </Card>
+  <Card title="Deposition prep" icon="comments" href="/skills/litigation/deposition-prep">
+    legal-deposition-prep
+  </Card>
+  <Card title="Án phí calculator" icon="calculator">
+    (Coming Wave 21+)
+  </Card>
+</CardGroup>
+
+## Bước tiếp theo
+
+- Trước Phiên Tòa: review lại với khách + practice xét hỏi
+- Sau Phiên: nếu thắng → enforcement; thua → kháng cáo (Wave 21+ sẽ có Appellate brief drafter)

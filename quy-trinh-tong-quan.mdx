@@ -1,0 +1,100 @@
+---
+title: "Quy trình tổng quan"
+description: "9 tình huống thực tế khi luật sư gặp — chọn 1 → xem flow cụ thể"
+icon: "diagram-project"
+---
+
+Mỗi tình huống = **1 chuỗi robot** chạy lần lượt. Bạn chỉ cần biết "tình huống của tôi là gì" → site này dẫn lối từng bước.
+
+## 9 tình huống thường gặp
+
+<CardGroup cols={2}>
+  <Card title="Sếp giao M&A DD" icon="building-circle-check" href="/scenarios/ma-due-diligence">
+    Rà soát 1 công ty mua → 4 audit chạy song song → 1 dashboard tổng hợp. **25-45 phút**
+  </Card>
+  <Card title="Đòi nợ vendor" icon="hand-holding-dollar" href="/scenarios/doi-no-vendor">
+    Từ nhắc nợ nhẹ → cảnh cáo → trước khởi kiện → đơn KK ra Tòa. **30 phút**
+  </Card>
+  <Card title="Soạn HĐ cho client" icon="pen-fancy" href="/scenarios/soan-hop-dong">
+    Form điền 10-20 trường → file Word chuẩn → memo gửi sếp. **30-45 phút**
+  </Card>
+  <Card title="Audit HĐ vendor đưa" icon="magnifying-glass" href="/scenarios/audit-hop-dong-vendor">
+    Robot quét 6 mục → list rủi ro → đề xuất redline → counter-proposal. **30 phút**
+  </Card>
+  <Card title="Setup công ty mới" icon="building" href="/scenarios/setup-cong-ty-moi">
+    FDI check → governance docs → nội quy LĐ → notice họp. **30-60 phút**
+  </Card>
+  <Card title="Chuẩn bị ra Tòa" icon="gavel" href="/scenarios/chuan-bi-ra-toa">
+    Đơn KK đúng mẫu → 50 câu hỏi xét hỏi → audit pre-filing. **30-45 phút**
+  </Card>
+  <Card title="Cho NLĐ nghỉ" icon="door-open" href="/scenarios/cho-nld-nghi">
+    Audit HĐLĐ → soạn TB chấm dứt / QĐ kỷ luật → kiểm policy. **30-45 phút**
+  </Card>
+  <Card title="Check thuế compliance" icon="receipt" href="/scenarios/check-thue-compliance">
+    Audit 4 trục VAT/CIT/FCT/TP → letter giải trình. **20-30 phút**
+  </Card>
+  <Card title="Tra cứu luật nhanh" icon="book-open" href="/scenarios/tra-cuu-luat-nhanh">
+    Hỏi câu pháp lý → robot trả lời + cite điều luật + verify. **2-5 phút**
+  </Card>
+</CardGroup>
+
+## Cách đọc 1 trang tình huống
+
+Mỗi trang có 5 phần:
+
+<Steps>
+  <Step title="Khi nào dùng">
+    Mô tả real-world tình huống bạn đang gặp
+  </Step>
+  <Step title="Bạn cần chuẩn bị">
+    Thông tin / file bạn phải có trước khi gọi robot
+  </Step>
+  <Step title="Flow N bước">
+    Sơ đồ luồng từng robot chạy theo thứ tự
+  </Step>
+  <Step title="Kết quả nhận được">
+    Danh sách artifact pháp lý cụ thể bạn sẽ có
+  </Step>
+  <Step title="Ví dụ thật">
+    1 case study minh họa từ input → output
+  </Step>
+</Steps>
+
+## Lựa chọn theo loại công việc bạn đang làm
+
+<AccordionGroup>
+  <Accordion title="Tôi là in-house GC (Pháp chế công ty)">
+    **Ưu tiên đọc**: M&A DD / Audit HĐ vendor / Setup CTY mới / Check thuế compliance / Cho NLĐ nghỉ
+  </Accordion>
+  <Accordion title="Tôi là luật sư tranh tụng">
+    **Ưu tiên đọc**: Chuẩn bị ra Tòa / Đòi nợ vendor / Soạn HĐ cho client
+  </Accordion>
+  <Accordion title="Tôi làm M&A / Cross-border">
+    **Ưu tiên đọc**: M&A DD / Setup CTY mới / Check thuế compliance
+  </Accordion>
+  <Accordion title="Tôi là paralegal / junior LS">
+    **Ưu tiên đọc**: Tra cứu luật nhanh / Soạn HĐ / Audit HĐ
+  </Accordion>
+  <Accordion title="Tôi là HR/Admin của công ty">
+    **Ưu tiên đọc**: Cho NLĐ nghỉ / Setup CTY mới (phần nội quy LĐ)
+  </Accordion>
+</AccordionGroup>
+
+## Khi nào KHÔNG dùng robot?
+
+<Warning>
+Robot **KHÔNG thay thế** luật sư trong các trường hợp sau:
+- Hôn nhân gia đình (ly hôn, di chúc, chia tài sản hôn nhân)
+- Hình sự (bào chữa, kháng cáo hình sự)
+- Phá sản doanh nghiệp
+- Patent / Copyright (chỉ có Trademark)
+- Bản án / Án lệ search
+
+Các mảng này robot **CHƯA HỖ TRỢ** — vui lòng tự xử lý hoặc nhờ luật sư chuyên môn.
+</Warning>
+
+## Tiếp theo
+
+Chọn 1 trong 9 tình huống ở trên → đi vào trang flow chi tiết.
+
+Hoặc xem trước [Robot có đúng luật không?](/robot-co-dung-luat-khong) để hiểu cách robot đảm bảo cite chuẩn.

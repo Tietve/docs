@@ -1,71 +1,71 @@
 ---
-title: "Firlaw Legal Skill Catalog"
-description: "46 AI legal skill cho pháp chế doanh nghiệp Việt Nam — phủ toàn bộ vòng đời pháp lý từ hợp đồng đến tranh tụng."
+title: "Robot này làm gì cho bạn?"
+description: "46 robot pháp lý chuyên môn — giúp luật sư tiết kiệm 70% thời gian soạn / kiểm / tra cứu"
 icon: "scale-balanced"
 ---
 
-<Note>
-Catalog gốc 34/34 (100%) hoàn tất ngày **2026-05-14** sau 20 wave + 12 BONUS variants — tổng **46 skill** sẵn sàng cho pháp chế Việt Nam.
-</Note>
+## Một câu thôi
 
-## Catalog là gì
+> **Bạn đưa thông tin vụ việc → robot trả về artifact pháp lý** (hợp đồng / báo cáo audit / đơn kiện / memo) **kèm trích dẫn điều luật Việt Nam chuẩn**.
 
-Mỗi skill = **1 con robot pháp lý chuyên môn hẹp**, đóng gói: prompt + reference luật + schema input/output + 2 ví dụ smoke test. Bạn gọi tên skill, đưa case data, robot trả về artifact pháp lý (hợp đồng / báo cáo audit / đơn kiện / memo) **kèm citation theo điều luật Việt Nam**.
-
-## 6 Archetype
+## Như thế nào trong đời thực?
 
 <CardGroup cols={3}>
-  <Card title="Generator (G)" icon="pen-nib" href="/archetypes#generator">
-    Soạn artifact mới từ JSON. Output `.docx` hoặc `.md` chuẩn pháp lý.
+  <Card title="Soạn hợp đồng" icon="pen-fancy">
+    Bạn điền 10 trường thông tin (bên A, bên B, giá, điều khoản...) → robot xuất file Word chuẩn pháp lý trong **30 giây**.
   </Card>
-  <Card title="Reviewer (R)" icon="magnifying-glass" href="/archetypes#reviewer">
-    Audit artifact có sẵn, phát hiện rủi ro 6-pillar checklist.
+  <Card title="Kiểm tra hợp đồng" icon="magnifying-glass">
+    Bạn paste HĐ vendor đưa → robot báo "5 chỗ rủi ro, 2 chỗ vi phạm luật" + đề xuất sửa.
   </Card>
-  <Card title="Workflow (W)" icon="diagram-project" href="/archetypes#workflow">
-    Tổng hợp đa-skill output thành dashboard executive.
-  </Card>
-  <Card title="Domain (D)" icon="book-open" href="/archetypes#domain">
-    Kho tri thức Q&A pháp luật VN có cite trong từng card.
-  </Card>
-  <Card title="Meta (M)" icon="route" href="/archetypes#meta">
-    Định nghĩa pipeline + route case → pipeline phù hợp.
-  </Card>
-  <Card title="Extractor (X)" icon="filter" href="/archetypes#extractor">
-    Trích dữ liệu cấu trúc từ tài liệu (obligation, deadlines, parties).
+  <Card title="Tra cứu điều luật" icon="book-open">
+    Bạn hỏi "phạt vi phạm HĐ MB B2B max bao nhiêu %?" → robot trả lời "8% theo LTM Đ.301" + link điều luật.
   </Card>
 </CardGroup>
 
-## Phạm vi pháp lý
+## Robot không thay luật sư — robot là trợ lý
 
-<CardGroup cols={2}>
-  <Card title="Hệ luật được phủ" icon="book">
-    BLDS 2015 / BLLĐ 2019 / BLTTDS 2015 / LDN 2020 / Luật ĐT 61/2020 / LTM 2005 / SHTT 2005-sđ / LĐĐ 2024 / LCC 2024 / Luật QLT 38/2019 / Luật ATVSLĐ 84/2015 / Luật BVMT 72/2020 / Luật 91/2025 PDPL
-  </Card>
-  <Card title="Văn bản dưới luật" icon="file-lines">
-    NĐ 132/2020 TP / TT 103/2014 FCT / NĐ 01/2014 K.5 bank cap / NĐ 39/2016 ATVSLĐ / TT 31/2018 huấn luyện 6 nhóm / NĐ 145/2020 BLLĐ / NĐ 293/2025 vùng I (5.31M) / NĐ 326/2016 án phí
-  </Card>
+| Việc của robot | Việc của bạn |
+|----------------|--------------|
+| Soạn nhanh artifact chuẩn | Đọc lại, sửa ý đặc thù của khách |
+| Kiểm 6 mục theo checklist | Đánh giá rủi ro chiến lược |
+| Tra cứu cite điều luật | Tư vấn khách hàng |
+| Tổng hợp 4 báo cáo → 1 dashboard | Quyết định approve / không |
+
+→ Robot làm **việc lặp đi lặp lại + cần trí nhớ chính xác**. Bạn làm **việc cần phán đoán + đặc thù vụ**.
+
+## Có 46 robot — chia 9 nhóm
+
+<CardGroup cols={3}>
+  <Card title="Hợp đồng" icon="file-contract">9 robot — soạn / kiểm / so sánh / negotiate</Card>
+  <Card title="Doanh nghiệp" icon="building">8 robot — họp HĐQT / ĐHĐCĐ / quy chế nội bộ</Card>
+  <Card title="Lao động" icon="user-tie">3 robot — HĐLĐ / cho nghỉ / kỷ luật</Card>
+  <Card title="Compliance" icon="shield-check">6 robot — thuế / FDI / ATVSLĐ / giấy phép</Card>
+  <Card title="Tranh tụng & Nợ" icon="gavel">6 robot — đơn KK / đòi nợ / chuẩn bị ra Tòa</Card>
+  <Card title="Sở hữu trí tuệ" icon="copyright">3 robot — nhãn hiệu / privacy / DPA</Card>
+  <Card title="Quy trình" icon="route">4 robot — pipeline / case routing / KB</Card>
+  <Card title="Tiện ích" icon="screwdriver-wrench">4 robot — tra luật / format file</Card>
+  <Card title="Vụ việc" icon="folder-open">3 robot — track case / timeline</Card>
 </CardGroup>
 
-## Kết quả đo lường
-
-- **Cite accuracy**: 100% (không hallucinate điều luật)
-- **False positive rate**: 0% trên smoke test
-- **Detection rate**: 80-90% issues per skill audit
-- **Smoke verified REAL**: 100% (PowerShell `Get-Item` byte check)
-
-## Bắt đầu thế nào
+## Bắt đầu thế nào?
 
 <Steps>
-  <Step title="Đọc Archetypes">
-    Hiểu 6 loại robot. Đi tới [Archetypes](/archetypes).
+  <Step title="Đọc cách dùng trong 3 phút">
+    Đi tới [Cách dùng](/getting-started)
   </Step>
-  <Step title="Đọc cite policy">
-    Nắm rule cite anchor BẮT BUỘC. Đi tới [Cite Anchors Policy](/cite-anchors-policy).
+  <Step title="Xem quy trình tổng quan">
+    9 tình huống thực tế khi LS gặp. Đi tới [Quy trình tổng quan](/quy-trinh-tong-quan)
   </Step>
-  <Step title="Chọn skill theo nhu cầu">
-    Catalog 46 skill chia 9 nhóm domain. Đi vào tab "Catalog Skill".
-  </Step>
-  <Step title="Hoặc dùng case-runner">
-    Không biết chọn skill nào? Đưa case profile vào [legal-case-runner](/skills/meta/legal-case-runner) — robot route giúp.
+  <Step title="Chọn tình huống của bạn">
+    Sếp giao M&A? Đòi nợ? Soạn HĐ? Chọn 1 tình huống → robot dẫn lối từng bước.
   </Step>
 </Steps>
+
+## Cam kết
+
+- ✅ Mọi điều luật trích dẫn đều đúng (đã verify với vbpl.vn / TVPL)
+- ✅ Không "bịa" điều luật không tồn tại
+- ✅ Tỉ lệ phát hiện rủi ro 80-90% trên test thật
+- ✅ 100% trang đã test smoke với case thật
+
+Đọc thêm: [Robot có đúng luật không?](/robot-co-dung-luat-khong)

@@ -1,0 +1,129 @@
+---
+title: "Robot có đúng luật không?"
+description: "Cách robot đảm bảo trích dẫn điều luật chuẩn — không bịa, không sai"
+icon: "shield-check"
+---
+
+## Câu hỏi đáng giá triệu đô
+
+> "Robot có 'bịa' điều luật không tồn tại không?"
+
+**Câu trả lời thật**: Robot ChatGPT/Gemini bình thường có thể bịa. **Robot Firlaw KHÔNG bịa** — vì đã được khóa cite anchor + verify nhiều lớp.
+
+## 3 lớp bảo vệ chống "bịa luật"
+
+<Steps>
+  <Step title="Lớp 1: Reference file chuẩn">
+    Mỗi robot có 1 file `cite-anchors.md` liệt kê **CHÍNH XÁC** điều luật được phép trích dẫn. Vd: HĐ MB B2B chỉ được cite BLDS Đ.430-449 + LTM 2005 + một số NĐ liên quan. Không có Đ.500 BLDS thì robot KHÔNG được cite Đ.500.
+  </Step>
+  <Step title="Lớp 2: Robot tự verify trước khi xuất">
+    Trước khi đưa file ra cho bạn, robot tự check: "Điều này có trong cite-anchors.md không?". Nếu không → từ chối xuất + báo lỗi.
+  </Step>
+  <Step title="Lớp 3: Bạn verify bằng 1 cú click">
+    Mỗi cite trong file đều có link tới **vbpl.vn** (chính thức Bộ Tư pháp) hoặc **TVPL**. Bạn click → đọc nguyên văn điều luật → so sánh với robot viết.
+  </Step>
+</Steps>
+
+## 10 điều luật robot HAY NHẦM (đã fix)
+
+Các "cite trap" đã được robot học để tránh:
+
+<AccordionGroup>
+  <Accordion title="Đ.466 K.5 BLDS — Lãi quá hạn 150%">
+    **CHỈ áp HĐ vay**. HĐ MB B2B dùng **LTM Đ.306** hoặc **BLDS Đ.357**. Robot trước đây hay confuse.
+  </Accordion>
+  <Accordion title="SHTT Đ.738 KHÔNG TỒN TẠI">
+    Luật SHTT 2005 chỉ có **105 điều**. Robot trước đây bịa Đ.738 cho IP. Giờ đã chặn.
+  </Accordion>
+  <Accordion title="Đ.520 vs Đ.521 BLDS — HĐ Dịch vụ">
+    Đ.520 = chấm dứt HĐ DV. **Đ.521 = TIẾP TỤC** (không phải chấm dứt). Robot trước đây swap.
+  </Accordion>
+  <Accordion title="Đ.49 K.1 vs K.2 BLLĐ — Vô hiệu HĐLĐ">
+    K.1 = vô hiệu **TOÀN BỘ**. K.2 = vô hiệu **MỘT PHẦN**. Thiếu BHXH dùng K.2 (không phải K.1).
+  </Accordion>
+  <Accordion title="Sa thải = Đ.124 K.4 + Đ.34 K.8 BLLĐ">
+    Robot trước đây dùng Đ.34 K.1c (sai). Đúng là K.8.
+  </Accordion>
+  <Accordion title="HĐ thuê = BLDS Đ.472-499">
+    KHÔNG dùng Đ.430 (đó là HĐ MB).
+  </Accordion>
+  <Accordion title="Mẫu đơn KK = 01-DS BLTTDS">
+    KHÔNG dùng 01-HC (đó là hành chính).
+  </Accordion>
+  <Accordion title="Tranh chấp HĐLĐ CHỈ Toà án">
+    KHÔNG dùng VIAC / Trọng tài. Khác HĐ TM.
+  </Accordion>
+  <Accordion title="NĐ 293/2025 lương vùng I = 5.31M">
+    Hiệu lực **01/01/2026**. KHÔNG dùng 4.96M (đã cũ).
+  </Accordion>
+  <Accordion title="LĐĐ 2024 hiệu lực 01/8/2024">
+    Là Luật 31/2024 (KHÔNG dùng LĐĐ 2013 đã hết hiệu lực).
+  </Accordion>
+</AccordionGroup>
+
+## Quy tắc cite robot dùng
+
+Mọi điều luật cite theo format chuẩn:
+
+```
+{Tên Luật/NĐ/TT} Đ.{số điều} K.{số khoản} điểm {chữ}
+```
+
+Ví dụ:
+- `BLDS 2015 Đ.466 K.5`
+- `BLLĐ 2019 Đ.36 K.2`
+- `BLTTDS 2015 Đ.189`
+- `LDN 2020 Đ.148 K.1`
+- `LĐĐ 2024 Đ.27 K.1`
+- `NĐ 132/2020/NĐ-CP Đ.5`
+- `TT 103/2014/TT-BTC Đ.13`
+
+## Cách BẠN verify cite trong artifact
+
+Nếu bạn nghi ngờ 1 cite nào đó:
+
+<Steps>
+  <Step title="Copy cite anchor">
+    Vd: `BLDS Đ.357`
+  </Step>
+  <Step title="Mở vbpl.vn hoặc TVPL">
+    Search số hiệu luật
+  </Step>
+  <Step title="Tới điều cụ thể">
+    Đọc nguyên văn so sánh với robot viết
+  </Step>
+  <Step title="Báo lại nếu sai">
+    Nói với robot "Cite Đ.357 không khớp với nội dung bạn viết". Robot sẽ tự sửa.
+  </Step>
+</Steps>
+
+## Hệ luật robot phủ
+
+<CardGroup cols={2}>
+  <Card title="Luật mới (2024-2026)" icon="calendar-check">
+    LĐĐ 2024 · LCC 2024 · Luật PDPL 91/2025 · NĐ 293/2025 · NĐ 69/2025
+  </Card>
+  <Card title="Luật chính" icon="book">
+    BLDS 2015 · BLLĐ 2019 · BLTTDS 2015 · LDN 2020 · Luật ĐT 61/2020 · LTM 2005 · SHTT
+  </Card>
+  <Card title="Văn bản dưới luật" icon="file-lines">
+    NĐ 132/2020 TP · TT 103/2014 FCT · NĐ 01/2014 K.5 · NĐ 39/2016 · TT 31/2018 · NĐ 145/2020 · NĐ 326/2016
+  </Card>
+  <Card title="Out of scope" icon="x">
+    Hôn nhân gia đình · Hình sự · Phá sản · Bản án / Án lệ
+  </Card>
+</CardGroup>
+
+## Đảm bảo từ Firlaw
+
+| Cam kết | Cách kiểm chứng |
+|---------|-----------------|
+| 100% cite verify được trên vbpl.vn / TVPL | Click link cite anchor trong artifact |
+| 0 cite "bịa" / không tồn tại | Đã test 100+ smoke cases |
+| Tự động update khi luật mới ban hành | Robot pull file luật mới hàng tháng |
+| Báo cảnh báo nếu cite có thể outdated | Robot tag `[VERIFY]` cạnh cite nghi ngờ |
+
+## Tiếp theo
+
+- [Cách dùng trong 3 phút](/getting-started) — bắt đầu thực hành
+- [Quy trình tổng quan](/quy-trinh-tong-quan) — chọn tình huống của bạn

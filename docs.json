@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Firlaw Legal Skill Catalog",
-  "description": "Catalog 46 AI legal skill cho pháp chế doanh nghiệp Việt Nam",
+  "description": "Catalog AI legal skill cho pháp chế doanh nghiệp Việt Nam — theo quy trình thực tế của luật sư",
   "colors": {
     "primary": "#0F766E",
     "light": "#14B8A6",
@@ -19,16 +19,40 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Tổng quan",
+        "tab": "Bắt đầu",
         "groups": [
           {
-            "group": "Bắt đầu",
-            "pages": ["introduction", "getting-started", "archetypes", "cite-anchors-policy"]
+            "group": "Cho luật sư",
+            "pages": [
+              "introduction",
+              "getting-started",
+              "quy-trinh-tong-quan",
+              "robot-co-dung-luat-khong"
+            ]
           }
         ]
       },
       {
-        "tab": "Catalog Skill",
+        "tab": "Theo tình huống",
+        "groups": [
+          {
+            "group": "Tình huống thường gặp",
+            "pages": [
+              "scenarios/ma-due-diligence",
+              "scenarios/doi-no-vendor",
+              "scenarios/soan-hop-dong",
+              "scenarios/audit-hop-dong-vendor",
+              "scenarios/setup-cong-ty-moi",
+              "scenarios/chuan-bi-ra-toa",
+              "scenarios/cho-nld-nghi",
+              "scenarios/check-thue-compliance",
+              "scenarios/tra-cuu-luat-nhanh"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "46 robot",
         "groups": [
           {
             "group": "Hợp đồng",
@@ -96,7 +120,7 @@
             ]
           },
           {
-            "group": "Meta & Workflow",
+            "group": "Quy trình & Workflow",
             "pages": [
               "skills/meta/legal-pipeline",
               "skills/meta/legal-case-runner",
@@ -114,7 +138,7 @@
             ]
           },
           {
-            "group": "Intake & Tracking",
+            "group": "Quản lý vụ việc",
             "pages": [
               "skills/intake/matter-tracker",
               "skills/intake/case-timeline",
@@ -127,7 +151,7 @@
   },
   "footer": {
     "socials": {
-      "github": "https://github.com/openclaw/firlaw"
+      "github": "https://github.com/Tietve/docs"
     }
   }
 }

@@ -1,84 +1,100 @@
 ---
-title: "Bắt đầu nhanh"
-description: "Cài Mintlify, gọi skill, đọc kết quả trong 5 phút"
+title: "Cách dùng trong 3 phút"
+description: "3 bước đơn giản — không cần biết code"
 icon: "rocket"
 ---
 
-## 1. Cài đặt môi trường
+## Bước 1: Mở Claude Code
 
-<CodeGroup>
-```bash Mintlify CLI
-npm i -g mintlify
-mint dev
-```
+Claude Code là môi trường để bạn nói chuyện với robot. Cài đặt một lần, dùng mãi.
 
-```powershell PowerShell
-npm i -g mintlify
-mint dev
-```
-</CodeGroup>
+<CardGroup cols={2}>
+  <Card title="Cài Claude Code" icon="download">
+    Mở https://claude.ai/code → Sign in → Download client cho Windows/Mac
+  </Card>
+  <Card title="Đã có sẵn" icon="check">
+    Nếu công ty đã setup sẵn, bạn chỉ cần mở app và đăng nhập
+  </Card>
+</CardGroup>
 
-Mở trình duyệt: `http://localhost:3000` để xem docs này local.
+## Bước 2: Gõ tên robot
 
-## 2. Cấu trúc 1 skill
+Trong Claude Code, gõ `/legal-` → menu robot sẽ hiện ra.
 
-Mỗi skill nằm trong `.claude/skills/legal-*/` với layout chuẩn:
+Ví dụ thường gặp:
 
-```
-.claude/skills/legal-{name}/
-├── SKILL.md                   # prompt + protocol
-├── schemas/
-│   ├── input.schema.json      # JSON Schema validate input
-│   └── output.schema.json     # JSON Schema validate output
-├── references/                # cite anchors + checklist + templates
-│   ├── cite-anchors.md
-│   └── checklist.md
-├── examples/                  # 2 smoke case
-│   ├── case-01/
-│   │   ├── input.json
-│   │   ├── output.json
-│   │   └── walkthrough.md
-│   └── case-02/...
-└── README.md                  # cách dùng
-```
+| Bạn muốn | Gõ |
+|----------|-----|
+| Audit hợp đồng | `/legal-contract-auditor` |
+| Soạn hợp đồng mới | `/legal-contract-drafter` |
+| Soạn đơn khởi kiện | `/legal-tranh-tung-drafter` |
+| Tra cứu luật | `/legal-vn-law-search` |
+| Audit thuế | `/legal-compliance-tax` |
 
-## 3. Gọi skill (Claude Code)
+## Bước 3: Cung cấp thông tin
+
+Robot sẽ hỏi bạn:
 
 <Steps>
-  <Step title="Chuẩn bị input JSON">
-    Copy schema input từ `.claude/skills/legal-{name}/schemas/input.schema.json`, điền data case của bạn.
+  <Step title="Robot hỏi bằng tiếng Việt thường">
+    Ví dụ: "Cho tôi biết: Bên Bán là ai? Bên Mua là ai? Giá hàng bao nhiêu? Thanh toán thế nào?"
   </Step>
-  <Step title="Invoke skill">
-    Gõ `/legal-{name}` trong Claude Code, paste JSON input.
+  <Step title="Bạn trả lời từng câu">
+    Như đang nói chuyện với cộng sự. Không cần format gì đặc biệt.
   </Step>
-  <Step title="Đọc output">
-    Robot trả về output JSON + report markdown. File save tại working directory.
-  </Step>
-  <Step title="Verify cite">
-    Mọi cite có format `BLDS Đ.{số} K.{khoản}` — check ngược ngay điều luật để tránh hallucination.
+  <Step title="Robot tự xuất file">
+    File `.docx` chuẩn pháp lý sẽ lưu vào thư mục bạn chỉ định (mặc định: Desktop).
   </Step>
 </Steps>
 
-## 4. Ví dụ end-to-end
+## Ví dụ end-to-end
+
+**Tình huống**: Bạn cần soạn HĐ mua bán B2B 1 tỷ VND cho khách.
+
+<Steps>
+  <Step title="Mở Claude Code, gõ /legal-contract-drafter">
+    Chọn nhánh "Mua bán B2B"
+  </Step>
+  <Step title="Robot hỏi thông tin">
+    - Bên Bán: Công ty A, MST 0123456789
+    - Bên Mua: Công ty B, MST 0987654321
+    - Hàng hóa: 100 máy tính laptop
+    - Giá: 10 triệu/cái × 100 = 1 tỷ
+    - Thanh toán: 30% trước + 70% sau giao hàng
+    - Bảo hành: 12 tháng
+    - Tòa án giải quyết tranh chấp: TAND Hà Nội
+  </Step>
+  <Step title="Robot xuất file">
+    `hop-dong-mua-ban-2026-05-17.docx` ~15KB, chuẩn pháp lý, gồm 10 điều canonical theo BLDS Đ.430-449 + LTM 2005
+  </Step>
+  <Step title="Bạn đọc lại + sửa nếu cần">
+    Robot soạn 90% chuẩn — bạn chỉ cần check phần đặc thù khách hàng (vd: điều khoản giao hàng nhiều đợt)
+  </Step>
+</Steps>
+
+⏱️ **Thời gian**: 2-3 phút từ lúc gõ lệnh → có file Word ngay.
+
+## Khi robot báo lỗi
 
 <AccordionGroup>
-  <Accordion title="Audit HĐ NDA — 30 giây">
-    Input: NDA 4 trang JSON. Skill `legal-contract-auditor` chạy 6-pillar checklist → output `audit.json` với 5 issues (1 BLOCK + 2 FLAG + 2 WARN) + report.md 12KB có verdict APPROVED_WITH_CHANGES.
+  <Accordion title="Robot không hiểu tôi">
+    Bạn diễn đạt lại bằng câu khác. Robot khá thông minh nhưng đôi khi cần thêm context.
   </Accordion>
-  <Accordion title="Soạn HĐ MB B2B — 45 giây">
-    Input: 10 trường (bên A/B/object/price/payment/...). Skill `legal-contract-drafter` (branch HĐ MB) emit JSON 10 điều canonical → render docx 15KB chuẩn pháp lý pro-side.
+  <Accordion title="File xuất ra bị lỗi format">
+    Báo lại "file bị lỗi tại đoạn X" — robot sửa lại trong 30 giây.
   </Accordion>
-  <Accordion title="M&A DD full — 25-45 phút">
-    Input: company profile + 4 source files (tax / fdi / safety / license). Pipeline `PIPELINE-DD-FULL` chạy #34+#35+#36+#37 parallel → #38 dashboard tổng hợp health score 0-100 + top 5 risks.
+  <Accordion title="Trích dẫn điều luật không đúng">
+    Báo lại — robot sẽ tra lại + sửa. Bạn cũng có thể yêu cầu "verify cite với TVPL.vn".
   </Accordion>
 </AccordionGroup>
 
-## 5. Khi gặp lỗi
+## Tiếp theo
 
-<Warning>
-**Cite hallucination phổ biến** — robot ghi "BLDS Đ.466 K.5" nhưng K.5 KHÔNG TỒN TẠI cho HĐ MB (chỉ HĐ vay). Luôn verify cite trước khi dùng artifact pháp lý.
-</Warning>
-
-<Tip>
-**Smoke test bytes mismatch** — nếu file output kích thước rỗng (<2KB), prompt có thể stream timeout. Re-spawn lại skill thường resolve được.
-</Tip>
+<Steps>
+  <Step title="Xem 9 tình huống thực tế">
+    [Quy trình tổng quan](/quy-trinh-tong-quan)
+  </Step>
+  <Step title="Chọn 1 tình huống của bạn">
+    Đi vào tab "Theo tình huống" trên menu trên
+  </Step>
+</Steps>
