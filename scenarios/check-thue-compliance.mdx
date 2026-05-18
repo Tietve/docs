@@ -41,7 +41,7 @@ graph LR
 
 <AccordionGroup>
   <Accordion title="Bước 1 — Audit 4 trục thuế">
-    Robot `legal-compliance-tax` kiểm:
+    Robot `compliance-tax` kiểm:
     
     **1. VAT (Luật GTGT)**:
     - Applicability đúng % (0/5/8/10%)
@@ -65,7 +65,7 @@ graph LR
     - Safe harbor: GTLK < 30 tỷ + ngành đơn giản
   </Accordion>
   <Accordion title="Bước 2 — Letter giải trình (nếu Sở thuế yêu cầu)">
-    Robot `legal-compliance-letter-drafter`:
+    Robot `compliance-letter-drafter`:
     
     **4 loại letter**:
     - **Giải trình** (Sở thuế truy thu) — ≤ 30 ngày
@@ -143,13 +143,13 @@ graph LR
 
 <CardGroup cols={3}>
   <Card title="Audit thuế" icon="receipt" href="/skills/compliance/compliance-tax">
-    legal-compliance-tax
+    compliance-tax
   </Card>
   <Card title="Letter compliance" icon="envelope" href="/skills/compliance/compliance-letter-drafter">
-    legal-compliance-letter-drafter
+    compliance-letter-drafter
   </Card>
   <Card title="Memo (optional)" icon="file-pen" href="/skills/meta/memo-drafter">
-    legal-memo-drafter
+    memo-drafter
   </Card>
 </CardGroup>
 
@@ -157,4 +157,4 @@ graph LR
 
 - Nộp letter giải trình + hồ sơ bổ sung cho Sở thuế
 - Update internal control: yêu cầu kế toán FCT trước mọi payment vendor nước ngoài
-- Annual review tax compliance → tích hợp vào `legal-compliance-dashboard`
+- Annual review tax compliance → tích hợp vào `compliance-dashboard`

@@ -50,7 +50,7 @@ graph TB
 
 <AccordionGroup>
   <Accordion title="Bước 1 — Audit HĐLĐ trước">
-    Robot `legal-employment-contract-auditor` kiểm 6 mục:
+    Robot `employment-contract-auditor` kiểm 6 mục:
     
     1. **10 nội dung Đ.21 K.1** (a → k)
     2. **Đ.20 loại HĐ** (không xác định / xác định / thời vụ)
@@ -63,7 +63,7 @@ graph TB
     Nếu lương < 5.31M (vùng I) → vô hiệu phần lương + truy thu.
   </Accordion>
   <Accordion title="Bước 2A — TB chấm dứt (hết hạn / đơn phương / tinh giản)">
-    Robot `legal-employment-termination-drafter` umbrella:
+    Robot `employment-termination-drafter` umbrella:
     
     **Đơn phương Đ.36 K.2** báo trước:
     - HĐ không xác định: **45 ngày**
@@ -85,7 +85,7 @@ graph TB
     **Tuổi hưu 2026**: 61y6m nam / 57y nữ (NĐ 135/2020 → 2028 = 62/60).
   </Accordion>
   <Accordion title="Bước 2B — QĐ kỷ luật sa thải">
-    Robot `legal-disciplinary-decision-drafter`:
+    Robot `disciplinary-decision-drafter`:
     
     **4 hình thức kỷ luật (Đ.124)**:
     1. Khiển trách (K.1)
@@ -106,7 +106,7 @@ graph TB
     3. Ra QĐ kỷ luật trong thời hiệu
   </Accordion>
   <Accordion title="Bước 3 — Audit policy (NQLĐ)">
-    Robot `legal-policy-auditor` check NQLĐ DN có:
+    Robot `policy-auditor` check NQLĐ DN có:
     - Đủ 7 nội dung Đ.118 K.2
     - CẤM phạt tiền NLĐ Đ.127 K.2
     - Hành vi vi phạm + hình thức kỷ luật rõ ràng (cơ sở pháp lý cho sa thải)
@@ -183,16 +183,16 @@ graph TB
 
 <CardGroup cols={3}>
   <Card title="Audit HĐLĐ" icon="user-tie" href="/skills/employment/employment-contract-auditor">
-    legal-employment-contract-auditor
+    employment-contract-auditor
   </Card>
   <Card title="TB chấm dứt" icon="door-open" href="/skills/employment/employment-termination-drafter">
-    legal-employment-termination-drafter
+    employment-termination-drafter
   </Card>
   <Card title="QĐ kỷ luật" icon="gavel" href="/skills/employment/disciplinary-decision-drafter">
-    legal-disciplinary-decision-drafter
+    disciplinary-decision-drafter
   </Card>
   <Card title="Audit NQLĐ" icon="shield-check" href="/skills/corporate/policy-auditor">
-    legal-policy-auditor
+    policy-auditor
   </Card>
 </CardGroup>
 
@@ -200,4 +200,4 @@ graph TB
 
 - Giao QĐ cho NLĐ + lưu hồ sơ
 - Nếu NLĐ khiếu nại / khởi kiện → [Chuẩn bị ra Tòa](/scenarios/chuan-bi-ra-toa) (CTY là Bị đơn)
-- Update NQLĐ nếu có gap → `legal-internal-rules-drafter`
+- Update NQLĐ nếu có gap → `internal-rules-drafter`

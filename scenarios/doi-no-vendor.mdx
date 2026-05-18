@@ -44,12 +44,12 @@ graph TB
 
 <AccordionGroup>
   <Accordion title="Bước 1 — Trích nghĩa vụ từ HĐ">
-    Robot `legal-obligation-extractor` đọc HĐ → liệt kê **chính xác**: ai phải trả ai, bao nhiêu, hạn nào, phạt nếu trễ.
+    Robot `obligation-extractor` đọc HĐ → liệt kê **chính xác**: ai phải trả ai, bao nhiêu, hạn nào, phạt nếu trễ.
     
     Output: JSON các nghĩa vụ + ảnh chụp trang HĐ tương ứng (làm evidence).
   </Accordion>
   <Accordion title="Bước 2 — L1 Nhắc nợ (tone nhẹ)">
-    Robot `legal-debt-warning-letter` branch `nhac_no` xuất 1 letter ~1 trang:
+    Robot `debt-warning-letter` branch `nhac_no` xuất 1 letter ~1 trang:
     - Tone: lịch sự, "có lẽ có sự nhầm lẫn"
     - KHÔNG cite điều luật
     - Hạn trả thêm: 10-15 ngày
@@ -57,7 +57,7 @@ graph TB
     Khi nào dùng: Còn muốn giữ quan hệ business.
   </Accordion>
   <Accordion title="Bước 3 — L2 Cảnh cáo (cite điều luật)">
-    Robot `legal-debt-warning-letter` branch `canh_cao`:
+    Robot `debt-warning-letter` branch `canh_cao`:
     - Tone: nghiêm khắc
     - Cite **LTM Đ.306** (lãi chậm trả TM) hoặc **BLDS Đ.357** (lãi chậm trả dân sự)
     - Cite **LTM Đ.301** (phạt vi phạm tối đa 8%)
@@ -65,16 +65,16 @@ graph TB
     - Hạn trả thêm: 7-10 ngày
   </Accordion>
   <Accordion title="Bước 4 — L3 Trước khởi kiện (neutral)">
-    Robot `legal-debt-warning-letter` branch `truoc_khoi_kien`:
+    Robot `debt-warning-letter` branch `truoc_khoi_kien`:
     - Tone: **NEUTRAL** "Công ty có thể xem xét quyền khởi kiện theo BLTTDS"
     - KHÔNG đe doạ trực tiếp (unethical)
     - Cite **Đ.186 BLTTDS** (quyền KK) + **Đ.429 BLDS** (thời hiệu 3 năm)
     - Hạn trả thêm: 7 ngày cuối
   </Accordion>
   <Accordion title="Bước 5 — Đơn khởi kiện">
-    Nếu vẫn không trả, robot `legal-tranh-tung-drafter` xuất Đơn KK đúng **Mẫu 01-DS BLTTDS 2015**.
+    Nếu vẫn không trả, robot `tranh-tung-drafter` xuất Đơn KK đúng **Mẫu 01-DS BLTTDS 2015**.
     
-    Trước khi nộp Tòa: robot `legal-pleading-validator` audit 6 mục (thẩm quyền, thời hiệu, yêu cầu KK, án phí...).
+    Trước khi nộp Tòa: robot `pleading-validator` audit 6 mục (thẩm quyền, thời hiệu, yêu cầu KK, án phí...).
   </Accordion>
 </AccordionGroup>
 
@@ -126,18 +126,18 @@ graph TB
 
 <CardGroup cols={3}>
   <Card title="Trích nghĩa vụ" icon="list-tree" href="/skills/intake/obligation-extractor">
-    legal-obligation-extractor
+    obligation-extractor
   </Card>
   <Card title="Letter L1/L2/L3" icon="envelope" href="/skills/litigation/debt-warning-letter">
-    legal-debt-warning-letter
+    debt-warning-letter
   </Card>
   <Card title="Workflow escalation" icon="stairs" href="/skills/litigation/debt-escalation">
-    legal-debt-escalation
+    debt-escalation
   </Card>
   <Card title="Đơn KK" icon="scale-balanced" href="/skills/litigation/tranh-tung-drafter">
-    legal-tranh-tung-drafter
+    tranh-tung-drafter
   </Card>
   <Card title="Validator pre-filing" icon="magnifying-glass-chart" href="/skills/litigation/pleading-validator">
-    legal-pleading-validator
+    pleading-validator
   </Card>
 </CardGroup>

@@ -42,7 +42,7 @@ graph LR
 
 <AccordionGroup>
   <Accordion title="Bước 1 — FDI check (nếu có nước ngoài)">
-    Robot `legal-compliance-fdi` kiểm 5 trục:
+    Robot `compliance-fdi` kiểm 5 trục:
     1. Cần IRC không? (Luật ĐT Đ.36 — vốn FDI > 50% phải có)
     2. Ngành cấm? (Phụ lục I — vd: cờ bạc, hoá chất độc)
     3. Ngành điều kiện? (Phụ lục II + III — vd: bán lẻ, ngân hàng)
@@ -52,7 +52,7 @@ graph LR
     Output: Roadmap thủ tục bước 1 → bước N với timeline.
   </Accordion>
   <Accordion title="Bước 2 — Governance docs (JSC/LLC)">
-    Robot `legal-corporate-governance-drafter` (umbrella 3 nhánh):
+    Robot `corporate-governance-drafter` (umbrella 3 nhánh):
     
     **Cho JSC**:
     - Quy chế tổ chức và hoạt động (Đ.138-153 LDN)
@@ -67,7 +67,7 @@ graph LR
     Robot tự lock cite + đảm bảo thẩm quyền đúng (TGĐ tự ký Quy chế TC = vô hiệu).
   </Accordion>
   <Accordion title="Bước 3 — Internal rules (NQLĐ + TƯTT)">
-    Robot `legal-internal-rules-drafter`:
+    Robot `internal-rules-drafter`:
     
     **NQLĐ** (BẮT BUỘC nếu ≥10 NLĐ, Đ.118 K.1 BLLĐ):
     7 nội dung bắt buộc (Đ.118 K.2):
@@ -157,27 +157,27 @@ Có CĐCS: chưa
 
 <CardGroup cols={3}>
   <Card title="FDI audit" icon="earth-asia" href="/skills/compliance/compliance-fdi">
-    legal-compliance-fdi
+    compliance-fdi
   </Card>
   <Card title="Governance" icon="building-columns" href="/skills/corporate/governance-drafter">
-    legal-corporate-governance-drafter
+    corporate-governance-drafter
   </Card>
   <Card title="Internal rules" icon="scroll" href="/skills/corporate/internal-rules-drafter">
-    legal-internal-rules-drafter
+    internal-rules-drafter
   </Card>
   <Card title="ĐHĐCĐ (JSC)" icon="users-line" href="/skills/corporate/shareholder-meeting-drafter">
-    legal-shareholder-meeting-drafter
+    shareholder-meeting-drafter
   </Card>
   <Card title="HĐTV (LLC)" icon="people-group" href="/skills/corporate/member-council-meeting-drafter">
-    legal-member-council-meeting-drafter
+    member-council-meeting-drafter
   </Card>
   <Card title="Notice họp" icon="envelope-open" href="/skills/corporate/meeting-notice-drafter">
-    legal-meeting-notice-drafter
+    meeting-notice-drafter
   </Card>
 </CardGroup>
 
 ## Bước tiếp theo
 
 - Sau khi có docs đầy đủ → nộp Sở KH-ĐT + Sở LĐTBXH
-- Setup compliance monitoring → `legal-compliance-audit`
+- Setup compliance monitoring → `compliance-audit`
 - HR onboarding → [Cho NLĐ nghỉ](/scenarios/cho-nld-nghi) (reverse flow cho HR)

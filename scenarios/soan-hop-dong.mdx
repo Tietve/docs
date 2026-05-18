@@ -97,7 +97,7 @@ Cấu trúc 10 điều canonical:
 
 ## Bước 3: Memo gửi sếp/khách
 
-Sau khi có HĐ, robot `legal-memo-drafter` sinh memo 5 sections (IRAC):
+Sau khi có HĐ, robot `memo-drafter` sinh memo 5 sections (IRAC):
 
 ```
 VẤN ĐỀ: Soạn HĐ MB 100 máy tính 1 tỷ
@@ -147,18 +147,18 @@ KẾT LUẬN:
 
 <CardGroup cols={3}>
   <Card title="Soạn HĐ" icon="pen-fancy" href="/skills/contracts/contract-drafter">
-    legal-contract-drafter (5 nhánh)
+    contract-drafter (5 nhánh)
   </Card>
   <Card title="Memo phân tích" icon="file-pen" href="/skills/meta/memo-drafter">
-    legal-memo-drafter
+    memo-drafter
   </Card>
   <Card title="Format file" icon="paragraph" href="/skills/utilities/document-formatting">
-    legal-document-formatting (auto)
+    document-formatting (auto)
   </Card>
 </CardGroup>
 
 ## Bước tiếp theo
 
 - Nếu khách negotiate → [Audit HĐ vendor đưa](/scenarios/audit-hop-dong-vendor) (workflow đối ngược)
-- Nếu cần redline lại HĐ → `legal-contract-redliner`
-- Nếu so sánh với HĐ chuẩn của firm → `legal-benchmark-comparator`
+- Nếu cần redline lại HĐ → `contract-redliner`
+- Nếu so sánh với HĐ chuẩn của firm → `benchmark-comparator`

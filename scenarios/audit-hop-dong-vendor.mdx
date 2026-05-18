@@ -42,11 +42,11 @@ graph LR
 <AccordionGroup>
   <Accordion title="Bước 1 — Audit 6 mục">
     Robot phù hợp với loại HĐ:
-    - HĐ MB / NDA / HĐ Vay → `legal-contract-auditor` (umbrella)
-    - HĐ DV → `legal-service-contract-auditor`
-    - HĐ Thuê → `legal-rental-contract-auditor`
-    - HĐLĐ → `legal-employment-contract-auditor`
-    - HĐ Vay riêng → `legal-loan-contract-auditor`
+    - HĐ MB / NDA / HĐ Vay → `contract-auditor` (umbrella)
+    - HĐ DV → `service-contract-auditor`
+    - HĐ Thuê → `rental-contract-auditor`
+    - HĐLĐ → `employment-contract-auditor`
+    - HĐ Vay riêng → `loan-contract-auditor`
     
     Robot xuất 2 file:
     - `audit.json` — danh sách issues máy đọc
@@ -59,7 +59,7 @@ graph LR
     - 🔴 BLOCKED — không thể ký
   </Accordion>
   <Accordion title="Bước 2 — Redline counter-proposal">
-    Robot `legal-contract-redliner` lấy audit issues + stance của bạn → xuất file redline với marker:
+    Robot `contract-redliner` lấy audit issues + stance của bạn → xuất file redline với marker:
     
     ```
     [REPLACE §5] "Bên vi phạm chịu phạt 12%" → "Bên vi phạm chịu phạt 8%"
@@ -74,7 +74,7 @@ graph LR
     ```
   </Accordion>
   <Accordion title="Bước 3 — Benchmark nhiều vendor">
-    Nếu có 2-5 HĐ vendor cùng category → robot `legal-benchmark-comparator` so sánh 6 trục:
+    Nếu có 2-5 HĐ vendor cùng category → robot `benchmark-comparator` so sánh 6 trục:
     
     | Trục | Vendor A | Vendor B | Vendor C |
     |------|----------|----------|----------|
@@ -120,7 +120,7 @@ graph LR
     (Nếu 2+ vendor) matrix 6 trục + verdict + recommendation
   </Card>
   <Card title="Memo gửi sếp" icon="file-pen">
-    (Optional) `legal-memo-drafter` tóm tắt rủi ro + action items
+    (Optional) `memo-drafter` tóm tắt rủi ro + action items
   </Card>
 </CardGroup>
 
@@ -146,27 +146,27 @@ graph LR
 
 <CardGroup cols={3}>
   <Card title="Auditor umbrella" icon="file-shield" href="/skills/contracts/contract-auditor">
-    legal-contract-auditor
+    contract-auditor
   </Card>
   <Card title="DV auditor" icon="briefcase" href="/skills/contracts/service-contract-auditor">
-    legal-service-contract-auditor
+    service-contract-auditor
   </Card>
   <Card title="Thuê auditor" icon="house-chimney" href="/skills/contracts/rental-contract-auditor">
-    legal-rental-contract-auditor
+    rental-contract-auditor
   </Card>
   <Card title="HĐLĐ auditor" icon="user-tie" href="/skills/employment/employment-contract-auditor">
-    legal-employment-contract-auditor
+    employment-contract-auditor
   </Card>
   <Card title="Redliner" icon="highlighter" href="/skills/contracts/contract-redliner">
-    legal-contract-redliner
+    contract-redliner
   </Card>
   <Card title="Benchmark" icon="table-columns" href="/skills/contracts/benchmark-comparator">
-    legal-benchmark-comparator
+    benchmark-comparator
   </Card>
 </CardGroup>
 
 ## Bước tiếp theo
 
 - Gửi redline cho vendor + negotiate
-- Sau negotiate, ký xong → track via `legal-matter-tracker`
-- Tạo `legal-obligation-extractor` để bóc nghĩa vụ → assign team
+- Sau negotiate, ký xong → track via `matter-tracker`
+- Tạo `obligation-extractor` để bóc nghĩa vụ → assign team

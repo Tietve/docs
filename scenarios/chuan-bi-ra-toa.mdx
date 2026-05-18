@@ -46,7 +46,7 @@ graph LR
 
 <AccordionGroup>
   <Accordion title="Bước 1 — Soạn Đơn KK">
-    Robot `legal-tranh-tung-drafter`:
+    Robot `tranh-tung-drafter`:
     - Mẫu **01-DS BLTTDS 2015** (KHÔNG 01-HC — đó là hành chính)
     - Cite **BLTTDS Đ.189** quyền KK
     - Thẩm quyền lãnh thổ (Đ.39 K.1a — nơi bị đơn)
@@ -56,7 +56,7 @@ graph LR
     Output: `don-khoi-kien-2026-05-17.docx` ~12KB
   </Accordion>
   <Accordion title="Bước 2 — Audit pre-filing 6 mục">
-    Robot `legal-pleading-validator` check trước khi nộp Tòa, tránh bị từ chối:
+    Robot `pleading-validator` check trước khi nộp Tòa, tránh bị từ chối:
     
     1. **Mẫu 01-DS đúng form**
     2. **Thẩm quyền lãnh thổ** (Đ.39 K.1a)
@@ -68,7 +68,7 @@ graph LR
     Output: audit report + verdict ready/not_ready.
   </Accordion>
   <Accordion title="Bước 3 — Deposition prep">
-    Robot `legal-deposition-prep` sinh 30-50 câu hỏi chia 5 nhóm:
+    Robot `deposition-prep` sinh 30-50 câu hỏi chia 5 nhóm:
     
     1. **Identity** — xác minh nhân thân nhân chứng / bị đơn
     2. **Background facts** — tiến trình giao dịch
@@ -150,13 +150,13 @@ graph LR
 
 <CardGroup cols={3}>
   <Card title="Soạn Đơn KK" icon="scale-balanced" href="/skills/litigation/tranh-tung-drafter">
-    legal-tranh-tung-drafter
+    tranh-tung-drafter
   </Card>
   <Card title="Pre-filing audit" icon="magnifying-glass-chart" href="/skills/litigation/pleading-validator">
-    legal-pleading-validator
+    pleading-validator
   </Card>
   <Card title="Deposition prep" icon="comments" href="/skills/litigation/deposition-prep">
-    legal-deposition-prep
+    deposition-prep
   </Card>
   <Card title="Án phí calculator" icon="calculator">
     (Coming Wave 21+)

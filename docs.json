@@ -122,8 +122,8 @@
           {
             "group": "Quy trình & Workflow",
             "pages": [
-              "skills/meta/legal-pipeline",
-              "skills/meta/legal-case-runner",
+              "skills/meta/pipeline",
+              "skills/meta/case-runner",
               "skills/meta/knowledge-base",
               "skills/meta/memo-drafter"
             ]

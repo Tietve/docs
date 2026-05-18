@@ -38,7 +38,7 @@ graph TB
 
 <AccordionGroup>
   <Accordion title="Robot Knowledge Base (cho Q&A common)">
-    `legal-knowledge-base` có **34 thẻ kiến thức** chia 15 chủ đề:
+    `knowledge-base` có **34 thẻ kiến thức** chia 15 chủ đề:
     
     - HĐ chung / HĐ MB B2B / HĐ DV / HĐLĐ / HĐ Vay / HĐ Đại lý
     - Thuê / FDI / Thuế / IP / Tranh tụng
@@ -58,7 +58,7 @@ graph TB
     - HĐ Vay max lãi suất bao nhiêu %?
   </Accordion>
   <Accordion title="Robot VN Law Search (cho câu hỏi mới / chi tiết)">
-    `legal-vn-law-search` — Tavily MCP-first:
+    `vn-law-search` — Tavily MCP-first:
     
     **3-tier search**:
     1. **Tavily MCP primary** — search live web (TVPL, vbpl.vn, luatvietnam)
@@ -159,18 +159,18 @@ graph TB
 
 <CardGroup cols={3}>
   <Card title="Knowledge Base" icon="book-open-reader" href="/skills/meta/knowledge-base">
-    legal-knowledge-base (34 cards)
+    knowledge-base (34 cards)
   </Card>
   <Card title="VN Law Search" icon="magnifying-glass" href="/skills/utilities/vn-law-search">
-    legal-vn-law-search (Tavily-first)
+    vn-law-search (Tavily-first)
   </Card>
   <Card title="Citation Linker" icon="link" href="/skills/utilities/citation-linker">
-    legal-citation-linker (enrich cite → URL)
+    citation-linker (enrich cite → URL)
   </Card>
 </CardGroup>
 
 ## Bước tiếp theo
 
 - Nếu cần dùng cite trong artifact → robot khác tự tra (vd: drafter / auditor)
-- Nếu cần memo dài → [Soạn HĐ cho client](/scenarios/soan-hop-dong) + `legal-memo-drafter`
+- Nếu cần memo dài → [Soạn HĐ cho client](/scenarios/soan-hop-dong) + `memo-drafter`
 - Nếu cần bản án → search manual tại congbobanan.toaan.gov.vn
