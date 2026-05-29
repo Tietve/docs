@@ -1,0 +1,39 @@
+---
+title: "legal-research"
+description: "Tra cứu pháp luật VN có tư duy — Tavily, verify hiệu lực + sửa đổi, authority tier"
+icon: "magnifying-glass-chart"
+---
+
+<Note>**Archetype**: Domain (D) — FOUNDATION tra cứu cho mọi skill pháp lý</Note>
+
+## Vấn đề giải quyết
+
+Mọi skill khác (`legal-ask`, `legal-draft`, `legal-review`) cần biết "luật này còn hiệu lực không? đã sửa đổi gì?" trước khi dùng. `legal-research` là **skill nền tảng** tra cứu **có tư duy**: hiểu intent → mở rộng khái niệm → search → verify → trả nguồn.
+
+<Warning>Nguyên tắc cốt lõi: AI nghĩ bằng **KHÁI NIỆM**, search bằng **KEYWORD**. Số Điều là KẾT QUẢ search, KHÔNG phải input. KHÔNG BAO GIỜ đoán số Điều.</Warning>
+
+## Pipeline 5 bước
+
+<Steps>
+  <Step title="QUERY">Hiểu intent + phân loại: cite lookup / topic research / latest / currency check / cite verify</Step>
+  <Step title="EXPAND">Mở rộng khái niệm pháp lý → 3-5 keywords search tiếng Việt, tên luật đầy đủ, có năm</Step>
+  <Step title="SEARCH">Tavily MCP với domain filter (thuvienphapluat.vn, vbpl.vn, moj.gov.vn). Fallback: WebSearch → vbpl.vn thủ công</Step>
+  <Step title="VERIFY">3 lớp: cite accuracy + currency (hiệu lực/sửa đổi) + authority tier (S/A/B/C/D) — bước QUAN TRỌNG NHẤT</Step>
+  <Step title="OUTPUT">Mỗi kết quả: nội dung + URL + hiệu lực + tier + confidence</Step>
+</Steps>
+
+## Tính năng số 1 — Currency verification
+
+Mỗi kết quả PHẢI ghi rõ:
+
+| Trạng thái | Ý nghĩa |
+|------------|---------|
+| ✅ Còn hiệu lực | Luật vẫn binding |
+| ⚠️ Đã sửa đổi | Liệt kê thay đổi + NĐ/luật sửa đổi |
+| ❌ Hết hiệu lực | Link đến luật thay thế |
+
+## Authority tier
+
+S (Luật/Bộ luật) > A (Nghị định) > B (Thông tư) > C (Công văn) > D (Bình luận, bài viết).
+
+<Tip>Phạm vi: chỉ tra cứu. KHÔNG phân tích (→ `legal-ask`), KHÔNG soạn thảo (→ `legal-draft`). Anti-hallucination: không tìm thấy thì nói rõ, không bịa số Điều.</Tip>

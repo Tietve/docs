@@ -1,0 +1,40 @@
+---
+title: "legal-case-summarizer"
+description: "Tóm tắt hồ sơ vụ án VN — đọc file dài, trích xuất có nguồn, bản tóm tắt 9 mục + timeline"
+icon: "folder-tree"
+---
+
+<Note>**Archetype**: Extractor (X) — tóm tắt hồ sơ + dòng thời gian fact-centric</Note>
+
+## Vấn đề giải quyết
+
+Luật sư đưa hồ sơ vụ án (nhiều file `.docx`/`.pdf`) → AI đọc → **bản tóm tắt 9 mục + dòng thời gian sự kiện**. Đây là bước ĐẦU TIÊN mỗi vụ tranh tụng.
+
+<Warning>Nguyên tắc sống còn: MỌI dữ kiện phải trỏ về NGUỒN trong hồ sơ. **KHÔNG bịa** ngày, tên, số tiền, sự kiện.</Warning>
+
+## Quy trình 5 bước
+
+<Steps>
+  <Step title="ĐỌC HỒ SƠ">Script pandoc/pypdf đọc chính xác. PDF nghi là bản scan → DỪNG, yêu cầu OCR (không tóm tắt khoảng trống)</Step>
+  <Step title="PHÂN LOẠI">Gắn nhãn: văn bản tố tụng / chứng thư / chứng người / giám định / biên bản. Bắt đầu từ đơn khởi kiện</Step>
+  <Step title="TRÍCH XUẤT CÓ NGUỒN">Atomic: đương sự, sự kiện+ngày, chứng cứ, yêu cầu/phản tố, vấn đề pháp lý — mỗi mục ghi nguồn (file + đoạn/trang)</Step>
+  <Step title="DỰNG TIMELINE">Sắp theo NGÀY SỰ KIỆN thực tế, mỗi dòng 1 sự kiện + nguồn</Step>
+  <Step title="XUẤT TÓM TẮT">Bản tóm tắt 9 mục + timeline (MVP: markdown)</Step>
+</Steps>
+
+## Nguyên tắc anti-hallucination
+
+<AccordionGroup>
+  <Accordion title="NEVER-INVENT">Chỉ ghi dữ kiện CÓ trong hồ sơ.</Accordion>
+  <Accordion title="GROUND-EVERY-FACT">Mỗi dữ kiện trỏ nguồn. Không nguồn → không ghi.</Accordion>
+  <Accordion title="VERBATIM-DATES">Trích ngày nguyên văn → chuẩn hóa dd/mm/yyyy. Ngày suy ra → đánh dấu "(suy ra)".</Accordion>
+  <Accordion title="FLAG-MISSING">Thiếu thông tin → ghi "không có trong hồ sơ", không lấp bằng phỏng đoán.</Accordion>
+  <Accordion title="REFUSE-VOID">PDF scan không đọc được → từ chối, yêu cầu OCR.</Accordion>
+</AccordionGroup>
+
+## Tái dùng skill khác
+
+- Phân tích vị thế pháp lý → `legal-ask` (IRAC)
+- Verify điều luật (nếu nêu) → `legal-research`
+
+<Tip>Grounding ở đây là **fact → nguồn**, không phải fact → điều luật. Bản tóm tắt là nháp lần 1; luật sư PHẢI đối chiếu hồ sơ gốc.</Tip>

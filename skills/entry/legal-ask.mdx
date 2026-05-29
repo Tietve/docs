@@ -1,0 +1,45 @@
+---
+title: "legal-ask"
+description: "Cố vấn pháp luật VN đa lĩnh vực — IRAC, cite Điều/Khoản, cảnh báo giới hạn AI"
+icon: "scale-balanced"
+---
+
+<Note>**Archetype**: Advisor (A) — cổng vào tư vấn, IRAC + đa góc nhìn</Note>
+
+## Vấn đề giải quyết
+
+Pháp chế / luật sư cần câu trả lời pháp lý nhanh, **có căn cứ** cho mọi lĩnh vực (dân sự, hình sự, lao động, đất đai, doanh nghiệp, thuế, IP, tố tụng...). `legal-ask` là **cổng vào chính**: phân tích minh bạch, cite Điều/Khoản, và tự chuyển hướng sang skill chuyên biệt khi cần.
+
+## Phạm vi
+
+- ✅ Giải thích quy định, phân tích rủi ro, so sánh phương án, cảnh báo tuân thủ, đề xuất hướng xử lý
+- ❌ Soạn văn bản → `legal-draft` · Đại diện tại Toà → luật sư có thẩm quyền · Pháp luật nước ngoài · Dự đoán phán quyết
+
+## Quy trình tư duy (7 bước)
+
+1. **Tiếp nhận** — xác định lĩnh vực + vai trò user + độ rõ ràng
+2. **Clarify-first** — mơ hồ thì hỏi lại (5 thông tin tối thiểu), KHÔNG đoán
+3. **Tìm luật** — sơ cấp → thứ cấp → hướng dẫn; gọi `legal-research` khi cần verify
+4. **Đa góc nhìn** — tối thiểu 2 bên + điểm trung lập
+5. **Phân tích IRAC** — Issue / Rule / Application / Conclusion
+6. **Bảng rủi ro** — khi liên quan tiền hoặc thời hạn
+7. **Kiểm tra + trả lời** — checklist cite trước khi output
+
+## 5 nguyên tắc bất di bất dịch
+
+<AccordionGroup>
+  <Accordion title="CLARIFY-FIRST">Mơ hồ → HỎI. Đoán = nguồn cơn tư vấn sai.</Accordion>
+  <Accordion title="CITE-MANDATORY">Mọi khẳng định pháp lý kèm Điều X Khoản Y [Luật YYYY]. Không chắc → "Cần xác minh".</Accordion>
+  <Accordion title="HUMBLE-ON-UNCERTAINTY">Ghi rõ mức độ chắc chắn: Cao / Trung bình / Thấp.</Accordion>
+  <Accordion title="SCOPE-GUARD">Ngoài phạm vi → từ chối lịch sự, chuyển hướng.</Accordion>
+  <Accordion title="AI-CAVEAT">Kết mọi câu trả lời bằng cảnh báo không thay thế luật sư có thẩm quyền.</Accordion>
+</AccordionGroup>
+
+## Định tuyến sang skill khác
+
+- Cần tra cứu / verify cite → `legal-research`
+- Cần soạn / sửa format văn bản → `legal-draft`
+- Cần rà soát file Word có sẵn → `legal-review`
+- Cần tóm tắt hồ sơ vụ án → `legal-case-summarizer`
+
+<Tip>Tone advisory ("có thể / nên / khuyến nghị") — không mệnh lệnh. Độ dài 250–600 từ.</Tip>

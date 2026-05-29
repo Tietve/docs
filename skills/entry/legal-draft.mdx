@@ -1,0 +1,42 @@
+---
+title: "legal-draft"
+description: "Quy chuẩn trình bày văn bản pháp lý VN theo NĐ 30/2020 — format, cấu trúc, ký dấu, 23 mẫu"
+icon: "pen-ruler"
+---
+
+<Note>**Archetype**: Domain (D) — FOUNDATION format + thư viện 23 mẫu văn bản</Note>
+
+## Vấn đề giải quyết
+
+Văn bản pháp lý sai thể thức = thiếu chuyên nghiệp, có khi vô hiệu. `legal-draft` là **sổ tay format** chuẩn NĐ 30/2020/NĐ-CP cho 23+ loại văn bản — dùng làm reference cho các skill soạn thảo khác, hoặc standalone để kiểm tra / sửa format / render `.docx`.
+
+## Hai chế độ
+
+<CardGroup cols={2}>
+  <Card title="Chế độ A — Reference" icon="book">
+    Skill khác (drafter, memo, governance...) gọi vào để lấy quy tắc font/margin, cấu trúc loại VB, quy tắc ký dấu, văn phong. Chỉ đọc file cần thiết.
+  </Card>
+  <Card title="Chế độ B — Standalone" icon="user-pen">
+    User paste văn bản → AI kiểm tra format theo checklist, hoặc render file Word từ `input.json`.
+  </Card>
+</CardGroup>
+
+## Quy trình (standalone)
+
+1. **Xác định loại VB** — Hợp đồng / Hành chính / Nội bộ DN / Tố tụng / Khác
+2. **Xác định chế độ** — STRICT (cơ quan NN) / STANDARD (đối tác tư nhân) / INTERNAL (nội bộ)
+3. **Kiểm tra format** — layout + cấu trúc + ký/dấu + văn phong
+4. **Render `.docx`** — tạo `input.json` → gọi render engine → giao file qua `SendUserFile`
+5. **Review** — báo Đạt / Cần sửa nếu chỉ kiểm tra
+
+## Thư viện mẫu (5 nhóm)
+
+| Nhóm | Ví dụ mẫu |
+|------|-----------|
+| Hợp đồng | HĐ MB/DV/LĐ/Vay/Đại lý, Phụ lục, BB thanh lý, MOU |
+| Hành chính | Công văn, QĐ bổ nhiệm, Tờ trình, Thông báo, Báo cáo |
+| Nội bộ DN | BB họp HĐQT, NQ ĐHĐCĐ, NQLĐ, Quy chế nội bộ |
+| Tố tụng | Đơn KK, Đơn yêu cầu, Đơn KN, Giấy UQ, Di chúc |
+| Khác | BB giao nhận |
+
+<Warning>Căn cứ chính: NĐ 30/2020. Mỗi loại VB có cấu trúc riêng — KHÔNG áp format công văn cho hợp đồng. Chỉ kiểm tra/hướng dẫn format, KHÔNG soạn nội dung (→ skill chuyên biệt).</Warning>

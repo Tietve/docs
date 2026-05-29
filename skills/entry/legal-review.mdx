@@ -1,0 +1,47 @@
+---
+title: "legal-review"
+description: "Rà soát văn bản pháp lý VN — 8 chiều, severity, verify cite, xuất Word có comment + report"
+icon: "file-magnifying-glass"
+---
+
+<Note>**Archetype**: Reviewer (R) — universal 8 chiều + 6 playbook, dual output</Note>
+
+## Vấn đề giải quyết
+
+Luật sư gửi 1 file Word → AI rà soát đa chiều → trả **file Word có comment** + **báo cáo** phân theo mức độ nghiêm trọng. Độc lập, sâu hơn các auditor chuyên loại; universal cho mọi loại VB, 6 loại có playbook sâu.
+
+## Tham số
+
+| Tham số | Giá trị | Mặc định |
+|---------|---------|----------|
+| `stance` | `pro-client` \| `neutral` | hỏi user nếu không rõ |
+| `output` | `report` \| `docx` \| `both` | `both` |
+
+- **pro-client** — bảo vệ thân chủ (ghi rõ bảo vệ bên nào), đề xuất sửa có lợi
+- **neutral** — chỉ lỗi pháp lý khách quan, compliance cho cả 2 bên
+
+## Quy trình 6 bước
+
+<Steps>
+  <Step title="INTAKE">Đọc file (safe-docx), thu metadata; hỏi stance nếu chưa rõ</Step>
+  <Step title="CLASSIFY">Nhận diện loại VB → playbook chuyên loại hoặc 8-dimension generic</Step>
+  <Step title="REVIEW">4 chiều: Substance / Risk / Format (NĐ 30) / Style</Step>
+  <Step title="VERIFY CITE">BẮT BUỘC — mọi số điều qua cite-verify; chưa chắc → gọi `legal-research`</Step>
+  <Step title="SYNTHESIZE">Phân severity 🔴 Blocking / 🟡 Important / 🟢 Nice; Blocking lên đầu</Step>
+  <Step title="OUTPUT">report + chèn comment vào BẢN COPY (giữ nguyên gốc)</Step>
+</Steps>
+
+## Nguyên tắc cốt lõi
+
+<AccordionGroup>
+  <Accordion title="VERIFY-EVERY-CITE">Mọi cite qua cite-verify trước khi vào finding. Phương pháp từ nghiên cứu, số điều từ verified-memory + primary-source.</Accordion>
+  <Accordion title="SEVERITY-FIRST">Blocking lên đầu, đừng chôn lỗi nghiêm trọng.</Accordion>
+  <Accordion title="HUMAN-IN-LOOP">AI là rà soát lần 1; mọi finding Blocking PHẢI luật sư duyệt lại.</Accordion>
+  <Accordion title="PRESERVE-ORIGINAL">Comment vào bản copy, không sửa file gốc.</Accordion>
+</AccordionGroup>
+
+## Playbook 6 loại
+
+HĐ mua bán B2B · HĐ dịch vụ · HĐ lao động · HĐ vay tiền · Đơn khởi kiện · Nội quy lao động. Loại khác → review generic 8-dimension.
+
+<Warning>safe-docx chỉ chạy trong thư mục người dùng → copy file vào đó trước khi comment. Cảnh báo nếu VB chứa PII nhạy cảm.</Warning>

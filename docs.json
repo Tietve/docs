@@ -55,6 +55,16 @@
         "tab": "46 robot",
         "groups": [
           {
+            "group": "Trợ lý chính (Cổng vào)",
+            "pages": [
+              "skills/entry/legal-ask",
+              "skills/entry/legal-research",
+              "skills/entry/legal-draft",
+              "skills/entry/legal-review",
+              "skills/entry/legal-case-summarizer"
+            ]
+          },
+          {
             "group": "Hợp đồng",
             "pages": [
               "skills/contracts/contract-auditor",
